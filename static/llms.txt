@@ -1,0 +1,31 @@
+# bold.casa
+
+## About
+Personal website of John Rembold — builder, maker, technologist, inventor.
+Renaissance builder working across tech, hardware, farming, and operational systems.
+
+## Author
+John Rembold
+- Location: Nashville, TN
+- Background: Software engineering, adtech, farming, self-hosted AI infrastructure
+- Strengths: Early trend detection, cross-domain synthesis, 0-to-1 building, process improvement
+- Languages: English, Chinese, German, Spanish, Czech
+- Countries lived/worked: USA, China, Mexico, Guatemala, Czech Republic
+
+## Topics
+- Self-hosted AI (OpenClaw, Claude, local LLM infrastructure)
+- Building in public
+- Debugging and systems engineering
+- Maker culture, DIY, hardware
+- Rust, WASM, static site generation
+- Farming and operational systems
+
+## Content
+- Blog: https://bold.casa/blog/
+- Projects: https://bold.casa/projects/
+- RSS: https://bold.casa/rss.xml
+- Atom: https://bold.casa/atom.xml
+
+## Contact
+- Email: jr@bold.casa
+- GitHub: https://github.com/jbold

@@ -1,0 +1,26 @@
+base_url = "https://bold.casa"
+title = "bold.casa"
+description = "Workshop of John Rembold — builder, maker, inventor. Taking things apart to understand how they work, then building something new."
+default_language = "en"
+compile_sass = true
+build_search_index = true
+generate_feeds = true
+feed_filenames = ["atom.xml", "rss.xml"]
+minify_html = true
+
+taxonomies = [
+    { name = "tags", feed = true },
+    { name = "categories", feed = true },
+]
+
+[markdown]
+highlight_code = true
+highlight_theme = "dracula"
+smart_punctuation = true
+
+[extra]
+author = "John Rembold"
+author_url = "https://bold.casa"
+twitter = ""
+github = "jbold"
+email = "jr@bold.casa"

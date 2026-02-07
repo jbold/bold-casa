@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} — {{ config.title }}{% endblock %}
+{% block description %}{{ page.description | default(value=config.description) }}{% endblock %}
+{% block og_title %}{{ page.title }}{% endblock %}
+{% block og_description %}{{ page.description | default(value=config.description) }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block og_url %}{{ page.permalink }}{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ page.title }}",
+    "description": "{{ page.description | default(value='') }}",
+    "datePublished": "{{ page.date }}",
+    {% if page.updated %}"dateModified": "{{ page.updated }}",{% endif %}
+    "author": {
+        "@type": "Person",
+        "name": "{{ config.extra.author }}",
+        "url": "{{ config.base_url }}"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "{{ config.extra.author }}"
+    },
+    "url": "{{ page.permalink }}",
+    "wordCount": {{ page.word_count }},
+    "timeRequired": "PT{{ page.reading_time }}M"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="post">
+    <header>
+        <h1>{{ page.title }}</h1>
+        <div class="meta">
+            <time datetime="{{ page.date }}">{{ page.date | date(format="%B %e, %Y") }}</time>
+            · {{ page.reading_time }} min read
+            {% if page.taxonomies.tags %}
+            <div class="tags">
+                {% for tag in page.taxonomies.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="post-content">
+        {{ page.content | safe }}
+    </div>
+</article>
+{% endblock %}

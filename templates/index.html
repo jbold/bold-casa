@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "John Rembold",
+    "url": "https://bold.casa",
+    "jobTitle": "Builder, Maker, Technologist",
+    "description": "Renaissance builder — tech, hardware, farming, operational systems. Taking things apart since the 4th grade science fair.",
+    "knowsAbout": ["software engineering", "systems architecture", "process improvement", "farming", "maker culture", "self-hosted AI", "OpenClaw"],
+    "knowsLanguage": ["English", "Chinese", "German", "Spanish", "Czech"],
+    "sameAs": [
+        "https://github.com/jbold"
+    ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>The workshop of John Rembold.</h1>
+    <p class="tagline">Taking things apart to understand how they work.<br>Then building something new.</p>
+</section>
+
+<section class="about">
+    <p>I'm a builder. Started with Radio Shack breadboard kits and a book about Samuel Morse. Grew up in my father's piano workshop — where I learned that understanding <em>how</em> something works is the first step to making it better.</p>
+
+    <p>Since then I've built adtech systems, turned a 15-acre hobby farm profitable, shipped products from zero, and lived and worked across four countries. My strengths: spotting patterns early, synthesizing cross-domain ideas, and building operational systems that actually work.</p>
+
+    <p>Right now I'm building in the open — AI tooling, self-hosted infrastructure, and whatever else needs taking apart. This is my workshop. Pull up a chair.</p>
+</section>
+
+<section class="recent">
+    <h2>Latest from the workbench</h2>
+    {% set blog = get_section(path="blog/_index.md") %}
+    {% for post in blog.pages | slice(end=5) %}
+    <article class="post-preview">
+        <time datetime="{{ post.date }}">{{ post.date | date(format="%B %e, %Y") }}</time>
+        <h3><a href="{{ post.permalink }}">{{ post.title }}</a></h3>
+        {% if post.description %}
+        <p>{{ post.description }}</p>
+        {% endif %}
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}

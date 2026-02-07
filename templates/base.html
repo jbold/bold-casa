@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ config.title }}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{{ config.description }}{% endblock %}">
+    <meta name="author" content="{{ config.extra.author }}">
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="{{ config.title }}">
+    <meta property="og:title" content="{% block og_title %}{{ config.title }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{{ config.description }}{% endblock %}">
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:url" content="{% block og_url %}{{ config.base_url }}{% endblock %}">
+
+    <!-- JSON-LD Structured Data -->
+    {% block structured_data %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "{{ config.title }}",
+        "url": "{{ config.base_url }}",
+        "description": "{{ config.description }}",
+        "author": {
+            "@type": "Person",
+            "name": "{{ config.extra.author }}",
+            "url": "{{ config.base_url }}"
+        }
+    }
+    </script>
+    {% endblock %}
+
+    <!-- Feeds -->
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="{{ get_url(path='atom.xml') }}">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ get_url(path='rss.xml') }}">
+
+    <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
+</head>
+<body>
+    <nav class="site-nav">
+        <a href="{{ config.base_url }}" class="site-name">bold.casa</a>
+        <div class="nav-links">
+            <a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a>
+            <a href="{{ get_url(path='@/projects/_index.md') }}">Projects</a>
+            <a href="{{ config.base_url }}/llms.txt">llms.txt</a>
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; {{ now() | date(format="%Y") }} {{ config.extra.author }}. Built with <a href="https://www.getzola.org">Zola</a>.</p>
+    </footer>
+</body>
+</html>
