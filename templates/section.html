@@ -11,7 +11,13 @@
 
 {{ section.content | safe }}
 
-{% for page in section.pages %}
+{% if paginator %}
+{% set pages = paginator.pages %}
+{% else %}
+{% set pages = section.pages %}
+{% endif %}
+
+{% for page in pages %}
 <article class="post-preview">
     <time datetime="{{ page.date }}">{{ page.date | date(format="%B %e, %Y") }}</time>
     <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
@@ -27,4 +33,15 @@
     {% endif %}
 </article>
 {% endfor %}
+
+{% if paginator %}
+<nav class="pagination">
+    {% if paginator.previous %}
+    <a href="{{ paginator.previous }}">← Newer</a>
+    {% endif %}
+    {% if paginator.next %}
+    <a href="{{ paginator.next }}">Older →</a>
+    {% endif %}
+</nav>
+{% endif %}
 {% endblock %}
