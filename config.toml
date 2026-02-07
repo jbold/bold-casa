@@ -19,6 +19,7 @@ highlight_theme = "dracula"
 smart_punctuation = true
 
 [extra]
+blog_name = "bold.casa"
 author = "John Rembold"
 author_url = "https://bold.casa"
 twitter = ""
