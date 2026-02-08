@@ -505,3 +505,50 @@ html[data-theme="dark"] .card:hover .card-description,
 html[data-theme="dark"] .card:focus-visible .card-description {
   color: #eaf1ff !important;
 }
+
+/* ===== Accent pass: blue pop + visible hyperlinks ===== */
+html[data-theme="dark"] {
+  --accent-link: #7db4ff;
+  --accent-link-hover: #a8ccff;
+  --accent-pop-bg: #243a63;
+  --accent-pop-border: #7db4ff;
+}
+
+/* Body/article links always visible */
+html[data-theme="dark"] .content a:not(.card):not(.nav-links):not(.tag):not(.taxonomy-item a) {
+  color: var(--accent-link) !important;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: color-mix(in srgb, var(--accent-link) 70%, transparent);
+}
+
+html[data-theme="dark"] .content a:not(.card):not(.nav-links):not(.tag):not(.taxonomy-item a):hover {
+  color: var(--accent-link-hover) !important;
+  text-decoration-color: var(--accent-link-hover);
+}
+
+/* Nav links get subtle blue pop on hover */
+html[data-theme="dark"] .nav-links:hover {
+  color: var(--accent-link-hover) !important;
+}
+
+/* Chips get accent pop while keeping contrast */
+html[data-theme="dark"] .filter-controls .taxonomy-item a:hover,
+html[data-theme="dark"] .filter-controls .taxonomy-item a:focus-visible,
+html[data-theme="dark"] .filter-controls .taxonomy-item a.active,
+html[data-theme="dark"] .filter-controls .taxonomy-item #all-projects-filter.active {
+  background: var(--accent-pop-bg) !important;
+  color: #ffffff !important;
+  border-color: var(--accent-pop-border) !important;
+}
+
+/* Card border + title pop on hover */
+html[data-theme="dark"] .card:hover,
+html[data-theme="dark"] .card:focus-visible {
+  border-color: var(--accent-pop-border) !important;
+}
+
+html[data-theme="dark"] .card:hover .card-title,
+html[data-theme="dark"] .card:focus-visible .card-title {
+  color: #dfeaff !important;
+}
