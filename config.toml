@@ -1,27 +1,44 @@
 base_url = "https://bold.casa"
 title = "bold.casa"
-description = "Workshop of John Rembold — builder, maker, inventor. Taking things apart to understand how they work, then building something new."
+description = "Workshop of John Rembold — builder, maker, inventor."
 default_language = "en"
-compile_sass = true
+theme = "tabi"
+
+minify_html = true
 build_search_index = true
 generate_feeds = true
 feed_filenames = ["atom.xml", "rss.xml"]
-minify_html = true
 
 taxonomies = [
-    { name = "tags", feed = true },
-    { name = "categories", feed = true },
+    {name = "tags", feed = true},
 ]
 
 [markdown]
 highlight_code = true
 highlight_theme = "dracula"
+# highlight_themes_css = [ ... ]
+render_emoji = true
+external_links_target_blank = true
+external_links_no_follow = false
+external_links_no_referrer = true
 smart_punctuation = true
 
 [extra]
-blog_name = "bold.casa"
 author = "John Rembold"
-author_url = "https://bold.casa"
-twitter = ""
-github = "jbold"
-email = "jr@bold.casa"
+social_media = [
+    { name = "github", url = "https://github.com/jbold" },
+]
+
+# Tabi specific settings
+language_code = "en"
+theme_color = "#282a36"
+
+# Accessibility & Performance
+katex_enable = false
+copy_button = true
+
+# Menu
+navbar_items = [
+    { code = "en", menu = "main", url = "projects", name = "Projects" },
+    { code = "en", menu = "main", url = "blog", name = "Blog" },
+]
