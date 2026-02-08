@@ -724,3 +724,72 @@ html[data-theme="dark"] .bloglist-content a:any-link:hover {
 html[data-theme="dark"] a:any-link:hover {
   background-color: transparent !important;
 }
+
+/* ===== GLOBAL HOVER NORMALIZATION (dark mode, kill-switch) =====
+   Force readable contrast for all interactive states.
+*/
+html[data-theme="dark"] a,
+html[data-theme="dark"] a:link,
+html[data-theme="dark"] a:visited {
+  color: #9fc7ff !important;
+}
+
+html[data-theme="dark"] a:hover,
+html[data-theme="dark"] a:focus-visible,
+html[data-theme="dark"] a:active {
+  color: #ffffff !important;
+  background-color: transparent !important;
+}
+
+/* interactive pills/chips/buttons */
+html[data-theme="dark"] .tag,
+html[data-theme="dark"] .tag a,
+html[data-theme="dark"] .taxonomy-item a,
+html[data-theme="dark"] .filter-controls a,
+html[data-theme="dark"] .bloglist-tags a,
+html[data-theme="dark"] .meta .tag a,
+html[data-theme="dark"] button,
+html[data-theme="dark"] [role="button"] {
+  background: #1e2736 !important;
+  color: #eaf2ff !important;
+  border-color: #7eaef8 !important;
+}
+
+html[data-theme="dark"] .tag:hover,
+html[data-theme="dark"] .tag a:hover,
+html[data-theme="dark"] .taxonomy-item a:hover,
+html[data-theme="dark"] .filter-controls a:hover,
+html[data-theme="dark"] .bloglist-tags a:hover,
+html[data-theme="dark"] .meta .tag a:hover,
+html[data-theme="dark"] button:hover,
+html[data-theme="dark"] [role="button"]:hover,
+html[data-theme="dark"] .tag:focus-visible,
+html[data-theme="dark"] .tag a:focus-visible,
+html[data-theme="dark"] .taxonomy-item a:focus-visible,
+html[data-theme="dark"] .filter-controls a:focus-visible,
+html[data-theme="dark"] .bloglist-tags a:focus-visible,
+html[data-theme="dark"] .meta .tag a:focus-visible,
+html[data-theme="dark"] button:focus-visible,
+html[data-theme="dark"] [role="button"]:focus-visible,
+html[data-theme="dark"] .active {
+  background: #2f456d !important;
+  color: #ffffff !important;
+  border-color: #b7d7ff !important;
+}
+
+/* cards (whole-link cards) */
+html[data-theme="dark"] .card:hover,
+html[data-theme="dark"] .card:focus-visible {
+  background: #1a2538 !important;
+  border-color: #9fc7ff !important;
+}
+
+html[data-theme="dark"] .card:hover .card-title,
+html[data-theme="dark"] .card:focus-visible .card-title {
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] .card:hover .card-description,
+html[data-theme="dark"] .card:focus-visible .card-description {
+  color: #e6efff !important;
+}
