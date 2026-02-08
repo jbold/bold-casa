@@ -9,6 +9,19 @@ repo = "https://github.com/jbold/myconmon"
 local_image = "projects/myconmon_cover.png"
 +++
 
+<div class="admonition info">
+    <div class="admonition-icon admonition-icon-info"></div>
+    <div class="admonition-content">
+        <strong class="admonition-title">Specs</strong>
+        <ul>
+            <li><strong>Status:</strong> 🟡 Beta</li>
+            <li><strong>Stack:</strong> Python, Go, Systemd</li>
+            <li><strong>Role:</strong> Creator</li>
+            <li><strong>Focus:</strong> Compliance / Drift</li>
+        </ul>
+    </div>
+</div>
+
 <a href="https://github.com/jbold/myconmon" class="button" target="_blank">View on GitHub ↗</a>
 
 **MyConMon** (My Continuous Monitoring) is a system for tracking configuration drift and security posture on personal infrastructure.

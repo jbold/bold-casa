@@ -9,6 +9,19 @@ repo = "https://github.com/jbold/sovereign-silverblue"
 local_image = "projects/silverblue_cover.png"
 +++
 
+<div class="admonition info">
+    <div class="admonition-icon admonition-icon-info"></div>
+    <div class="admonition-content">
+        <strong class="admonition-title">Specs</strong>
+        <ul>
+            <li><strong>Status:</strong> 🟢 Stable</li>
+            <li><strong>Stack:</strong> Fedora Silverblue, bootc, OCI</li>
+            <li><strong>Role:</strong> Maintainer</li>
+            <li><strong>Focus:</strong> Privacy / Hardening</li>
+        </ul>
+    </div>
+</div>
+
 <a href="https://github.com/jbold/sovereign-silverblue" class="button" target="_blank">View on GitHub ↗</a>
 
 A custom **Fedora Silverblue** image built with `bootc`, designed for privacy and security enthusiasts.

@@ -9,6 +9,19 @@ repo = "https://github.com/jbold/nosh"
 local_image = "projects/nosh_cover.png"
 +++
 
+<div class="admonition info">
+    <div class="admonition-icon admonition-icon-info"></div>
+    <div class="admonition-content">
+        <strong class="admonition-title">Specs</strong>
+        <ul>
+            <li><strong>Status:</strong> 🟢 Active</li>
+            <li><strong>Stack:</strong> Rust, JSON, TOML</li>
+            <li><strong>Role:</strong> Architect / Developer</li>
+            <li><strong>License:</strong> MIT</li>
+        </ul>
+    </div>
+</div>
+
 <a href="https://github.com/jbold/nosh" class="button" target="_blank">View on GitHub ↗</a>
 
 **Nosh** is a specification and toolset for creating "machine-readable companion files" for web content. Think of it as **RSS for the agentic web**.

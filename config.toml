@@ -33,6 +33,7 @@ default_theme = "dark"
 
 # Menu configuration (Tabi uses 'menu', not 'navbar_items')
 menu = [
+    { name = "Now", url = "now", trailing_slash = true },
     { name = "Projects", url = "projects", trailing_slash = true },
     { name = "Blog", url = "blog", trailing_slash = true },
 ]

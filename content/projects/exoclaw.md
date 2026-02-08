@@ -9,6 +9,19 @@ repo = "https://github.com/jbold/exoclaw"
 local_image = "projects/exoclaw_cover.jpg"
 +++
 
+<div class="admonition info">
+    <div class="admonition-icon admonition-icon-info"></div>
+    <div class="admonition-content">
+        <strong class="admonition-title">Specs</strong>
+        <ul>
+            <li><strong>Status:</strong> 🟡 Prototype</li>
+            <li><strong>Stack:</strong> Rust, Wasmtime, WASI</li>
+            <li><strong>Role:</strong> Lead Developer</li>
+            <li><strong>Focus:</strong> Security / Isolation</li>
+        </ul>
+    </div>
+</div>
+
 <a href="https://github.com/jbold/exoclaw" class="button" target="_blank">View on GitHub ↗</a>
 
 **Exoclaw** is an experimental runtime for AI agents, focusing on security and isolation.
