@@ -1,12 +1,67 @@
-/* bold.casa — pro pass (fast, accessible, restrained) */
+/* bold.casa v2 — progressive-enhancement CSS architecture
+   North stars: readability, speed, SEO/GEO, accessibility, visual polish
+*/
 
+/* =========================
+   1) DESIGN TOKENS
+========================= */
 :root {
-  --accent: #9fb2ff;
-  --accent-soft: rgba(159, 178, 255, 0.14);
-  --border-soft: rgba(255, 255, 255, 0.08);
+  --bg: #141518;
+  --surface: #1a1c21;
+  --surface-2: #20232a;
+  --text: #eceff4;
+  --text-muted: #b4bbc8;
+  --border: rgba(255, 255, 255, 0.11);
+  --accent: #a8b7ff;
+  --accent-strong: #c2ccff;
+  --accent-soft: color-mix(in srgb, var(--accent) 18%, transparent);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  --space-1: 0.4rem;
+  --space-2: 0.7rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+
+  --shadow-1: 0 2px 12px rgba(0, 0, 0, 0.18);
+  --shadow-2: 0 12px 32px rgba(0, 0, 0, 0.30);
+
+  --measure: 68ch;
 }
 
-/* Layout rhythm */
+/* =========================
+   2) GLOBAL / TYPOGRAPHY
+========================= */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: #fff;
+}
+
+a:hover {
+  color: var(--accent-strong);
+}
+
+/* Improve perceived speed for long lists */
+.bloglist-container,
+.cards {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 1000px;
+}
+
+/* =========================
+   3) LAYOUT RHYTHM
+========================= */
 .content,
 .navbar,
 footer section {
@@ -14,173 +69,237 @@ footer section {
   margin-inline: auto;
 }
 
-/* Header */
 .navbar {
-  border-bottom: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border);
 }
 
 .home-title {
-  font-weight: 750;
+  font-weight: 760;
   letter-spacing: -0.02em;
 }
 
-/* Hero */
+footer {
+  border-top: 1px solid var(--border);
+}
+
+footer .credits {
+  opacity: 0.75;
+}
+
+/* =========================
+   4) HOME HERO
+========================= */
 #banner-container-home {
-  border: 1px solid var(--border-soft);
-  border-radius: 14px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
-  padding: 2rem 2rem 1.75rem;
-  margin-bottom: 2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(1200px 500px at 0% 0%, color-mix(in srgb, var(--accent) 11%, transparent), transparent 55%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+  padding: var(--space-5);
+  margin-bottom: var(--space-5);
+  box-shadow: var(--shadow-1);
 }
 
 #home-banner-header {
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.04;
+  font-size: clamp(2rem, 4.2vw, 3.2rem);
+  line-height: 1.02;
   letter-spacing: -0.03em;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-3);
+  font-weight: 800;
 }
 
 #banner-home-subtitle p {
-  max-width: 65ch;
-  color: rgba(255,255,255,0.82);
+  max-width: var(--measure);
+  color: var(--text-muted);
+  font-size: 1.06rem;
+  line-height: 1.72;
 }
 
 #image-container-home {
   display: none;
 }
 
-/* Hero tags */
 .hero-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.55rem;
-  margin-top: 0.8rem;
+  margin-top: 0.9rem;
 }
 
 .hero-tags .tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  border-radius: 999px;
   font-size: 0.75rem;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
   font-weight: 650;
-  padding: 0.34rem 0.6rem;
-  border: 1px solid var(--border-soft);
-  background: rgba(255,255,255,0.03);
-  color: rgba(255,255,255,0.86);
+  padding: 0.34rem 0.68rem;
 }
 
-/* Keep section titles visible globally (Projects/Blog need this) */
-
-/* Posts list cleanup */
+/* =========================
+   5) BLOG LIST
+========================= */
 .bloglist-container {
-  border-top: 1px solid var(--border-soft);
-  margin-top: 1rem;
+  border-top: 1px solid var(--border);
+  margin-top: var(--space-3);
 }
 
 .bloglist-title a {
-  font-weight: 700;
+  font-weight: 740;
 }
 
 .bloglist-content .description {
-  max-width: 68ch;
+  max-width: var(--measure);
 }
 
 .bloglist-container .tag {
   font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  font-weight: 650;
+  letter-spacing: 0.045em;
+  font-weight: 640;
 }
 
-/* Cards */
+/* =========================
+   6) PROJECT FILTER CHIPS
+========================= */
+.filter-controls {
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.filter-controls .taxonomy-item a {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  color: var(--text) !important;
+  border-radius: 999px;
+  padding: 0.52rem 0.9rem;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+
+.filter-controls .taxonomy-item a:hover,
+.filter-controls .taxonomy-item a:focus-visible {
+  background: color-mix(in srgb, var(--accent) 22%, transparent) !important;
+  border-color: color-mix(in srgb, var(--accent) 56%, var(--border)) !important;
+  color: #fff !important;
+}
+
+.filter-controls .taxonomy-item a.active,
+.filter-controls .taxonomy-item #all-projects-filter.active {
+  background: color-mix(in srgb, var(--accent) 34%, transparent) !important;
+  border-color: color-mix(in srgb, var(--accent) 75%, var(--border)) !important;
+  color: #fff !important;
+}
+
+/* =========================
+   7) CARDS
+========================= */
 .card {
-  border: 1px solid var(--border-soft) !important;
-  border-radius: 12px !important;
-  background: rgba(255, 255, 255, 0.015);
-  transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease, background 150ms ease !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  background: rgba(255, 255, 255, 0.018);
+  overflow: clip;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease, background 160ms ease !important;
 }
 
 .card:hover,
 .card:focus-visible {
   transform: translateY(-3px);
-  border-color: rgba(159, 178, 255, 0.55) !important;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.32);
-  background: rgba(159, 178, 255, 0.08);
+  border-color: color-mix(in srgb, var(--accent) 65%, var(--border)) !important;
+  box-shadow: var(--shadow-2);
+  background: color-mix(in srgb, var(--accent) 10%, rgba(255, 255, 255, 0.02));
+}
+
+.card-image {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
 .card-title {
-  font-weight: 730;
-  color: rgba(255,255,255,0.95) !important;
+  font-weight: 760;
+  color: #fff !important;
 }
 
 .card-description {
-  opacity: 0.92;
-  color: rgba(255,255,255,0.86) !important;
-}
-
-.card:hover .card-title,
-.card:focus-visible .card-title {
-  color: #ffffff !important;
+  color: var(--text-muted) !important;
+  opacity: 1;
+  line-height: 1.6;
 }
 
 .card:hover .card-description,
 .card:focus-visible .card-description {
-  color: rgba(255,255,255,0.9) !important;
+  color: #d8deea !important;
 }
 
-/* Filter chips (projects page) */
-.filter-controls {
-  gap: 0.45rem;
+/* =========================
+   8) ARTICLE DETAILS
+========================= */
+.article-title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
-.filter-controls .taxonomy-item a {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--border-soft);
-  color: rgba(255,255,255,0.88) !important;
-  border-radius: 999px;
-  padding: 0.5rem 0.85rem;
-  transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
-}
-
-.filter-controls .taxonomy-item a:hover,
-.filter-controls .taxonomy-item a:focus-visible {
-  background: rgba(159, 178, 255, 0.18) !important;
-  color: #ffffff !important;
-  border-color: rgba(159, 178, 255, 0.6) !important;
-}
-
-.filter-controls .taxonomy-item a.active,
-.filter-controls .taxonomy-item #all-projects-filter.active {
-  background: rgba(159, 178, 255, 0.28) !important;
-  color: #ffffff !important;
-  border-color: rgba(159, 178, 255, 0.8) !important;
-}
-
-/* Link treatment */
-a:hover {
-  color: var(--accent);
-}
-
-.content a:not(.tag):not(.card):not(.nav-links):hover {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-/* Specs block polish */
 .admonition.info {
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   border-left-width: 3px;
 }
 
-/* Footer */
-footer {
-  border-top: 1px solid var(--border-soft);
+/* =========================
+   9) ACCESSIBILITY / REDUCED MOTION
+========================= */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-footer .credits {
-  opacity: 0.72;
+/* =========================
+   10) PROGRESSIVE ENHANCEMENT
+========================= */
+/* Container query for card readability */
+.cards {
+  container-type: inline-size;
 }
 
-/* Selection */
-::selection {
-  background: var(--accent-soft);
+@container (max-width: 780px) {
+  .card-title {
+    font-size: 1.55rem;
+  }
+
+  .card-description {
+    font-size: 1.02rem;
+  }
+}
+
+/* Future-ready masonry (when broadly enabled) */
+@supports (grid-template-rows: masonry) {
+  .cards {
+    grid-template-rows: masonry;
+    align-tracks: start;
+  }
+}
+
+/* =========================
+   11) MOBILE TUNING
+========================= */
+@media (max-width: 768px) {
+  #banner-container-home {
+    padding: 1.35rem;
+  }
+
+  #home-banner-header {
+    font-size: 2.15rem;
+  }
+
+  .content,
+  .navbar,
+  footer section {
+    max-width: 94vw;
+  }
 }
