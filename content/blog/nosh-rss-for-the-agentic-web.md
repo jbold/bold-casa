@@ -23,6 +23,27 @@ key_points = [
 ]
 +++
 
+## TLDR
+
+Nosh is an open spec that embeds structured, machine-readable content in your page's `<head>` so AI agents get typed knowledge instead of parsing HTML. **4.1x fewer tokens, 4.1x higher information density, zero extra effort** — it auto-generates from your existing content.
+
+**[Jump to the spec →](#the-schema-is-dead-simple)** · **[See the benchmark →](#the-numbers)** · **[GitHub repo →](https://github.com/jbold/nosh)**
+
+---
+
+### In This Post
+
+- [The Problem](#the-problem-is-obvious-once-you-see-it)
+- [What Nosh Is](#so-i-built-nosh)
+- [Why Not JSON-LD?](#why-not-just-json-ld)
+- [The Numbers: 4.1x Token Reduction](#the-numbers)
+- [The Schema](#the-schema-is-dead-simple)
+- [Zero Friction Integration](#zero-friction)
+- [Discovery](#how-agents-find-it)
+- [What's Next](#where-this-goes)
+
+---
+
 It's 1am on a Saturday. I've been staring at Cloudflare analytics for my new blog and thinking: *who cares about pageviews anymore?*
 
 If an AI agent reads my [last post about getting 1M token context working](/blog/10-walls-to-1m-context/), it scrapes the HTML, fights through the nav bar, sidebar, footer, code blocks, and inline links — and maybe extracts 60-70% of the useful information. The 10 debugging steps I carefully documented? The agent might get 7 of them right and hallucinate the other 3.
@@ -36,7 +57,7 @@ The web was built for humans reading in browsers. HTML is a *presentation* forma
 We've tried to fix this before:
 - **JSON-LD** embeds metadata in the page head — "this is an Article, by John, published Feb 6." But it doesn't contain the actual *knowledge*. My debugging steps aren't in the JSON-LD.
 - **llms.txt** gives AI crawlers a site-level directory — "here are my important pages." But it's a map, not the territory.
-- **RSS/Atom** syndicates content as a feed. But it's a timeline of posts, not structured knowledge per page.
+- **RSS/Atom** syndicates content as XML feeds — structured, yes, but structured for *syndication* (title, date, link, and the full post body dumped as a blob). An RSS item doesn't break a tutorial into typed steps, or separate prerequisites from findings. It's structured *metadata* wrapping unstructured *content*.
 
 There's a gap between "here's a directory of my site" (llms.txt) and "here's metadata about this page" (JSON-LD). Nobody is saying: **here's the actual knowledge, structured and typed, ready for an agent to consume.**
 
@@ -93,9 +114,11 @@ I tested nosh against my own blog post — a 16KB technical tutorial about getti
 | Markdown | 16.5 KB | ~2,980 | 21 facts buried in prose |
 | Nosh | 5.1 KB | ~835 | 21 facts, pre-structured |
 
-**4.1x fewer tokens.** Same information. Every fact is typed, keyed, and extractable without parsing.
+### 4.1x fewer tokens. Same knowledge. Zero parsing.
 
-An agent consuming 100 noshed pages uses the same token budget as ~25 HTML pages. That's 4x the knowledge per dollar.
+Let that sink in. An AI agent consuming 100 noshed pages uses the same token budget as consuming ~25 HTML pages. **4x the knowledge per dollar.** And every fact is typed, keyed, and extractable without a single regex or HTML parser.
+
+This isn't a theoretical improvement. This is a real blog post, measured today.
 
 ## The Schema Is Dead Simple
 
@@ -120,7 +143,7 @@ Extra fields are allowed and encouraged. If your post has cost data, benchmark r
 
 Here's the thing that killed most web standards: **adoption friction.**
 
-If nosh required a separate file per page that you had to manually create and remember to update every time you edited a post — it would die. I know because I built that version first, then my co-pilot called bullshit on it.
+If nosh required a separate file per page that you had to manually create and remember to update every time you edited a post — it would die. I built that version first. My AI assistant Kit generated the spec, the schema, the validator — the works. Then I looked at it and asked the uncomfortable question: *why would a non-technical blogger ever do this?* That killed the separate-file-per-post approach on the spot.
 
 The real version embeds in your page template. For my Zola blog, the nosh content lives in the post's frontmatter:
 
