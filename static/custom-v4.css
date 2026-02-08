@@ -570,3 +570,129 @@ html[data-theme="dark"] .bloglist-tags a.tag:hover {
   background: #2a3f66 !important;
   border-color: #9fc4ff !important;
 }
+
+/* ===== Mobile hardening ===== */
+@media (max-width: 900px) {
+  .navbar {
+    padding-inline: 0.5rem;
+  }
+
+  .nav-navs ul {
+    gap: 0.45rem !important;
+  }
+
+  .filter-controls {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    padding-bottom: 0.25rem;
+  }
+
+  .filter-controls .taxonomy-item {
+    flex: 0 0 auto;
+  }
+
+  .cards {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+
+  .card-title {
+    font-size: 1.5rem !important;
+    line-height: 1.2;
+  }
+
+  .card-description {
+    font-size: 0.98rem !important;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 640px) {
+  .content,
+  .navbar,
+  footer section {
+    max-width: 100% !important;
+    padding-inline: 0.9rem;
+  }
+
+  #banner-container-home {
+    padding: 1rem !important;
+    margin-bottom: 1.25rem;
+  }
+
+  #home-banner-header {
+    font-size: 1.8rem !important;
+    line-height: 1.1;
+  }
+
+  #banner-home-subtitle p {
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .hero-tags {
+    gap: 0.4rem;
+  }
+
+  .hero-tags .tag,
+  .filter-controls .taxonomy-item a,
+  .tags .tag,
+  .meta .tag a {
+    font-size: 0.68rem !important;
+    padding: 0.28rem 0.55rem !important;
+  }
+
+  .bloglist-container {
+    margin-top: 0.5rem;
+  }
+
+  .bloglist-meta,
+  .bloglist-content {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+
+  .bloglist-title a {
+    font-size: 1.2rem;
+    line-height: 1.25;
+  }
+
+  .bloglist-content .description {
+    font-size: 0.95rem;
+  }
+
+  .card::before {
+    top: 8px;
+    right: 8px;
+    font-size: 0.56rem;
+    padding: 0.18rem 0.38rem;
+  }
+
+  .card-image {
+    aspect-ratio: 16 / 10;
+  }
+
+  .card-title {
+    font-size: 1.28rem !important;
+  }
+
+  .card-description {
+    font-size: 0.94rem !important;
+  }
+
+  footer {
+    margin-top: 1rem;
+  }
+
+  footer .credits {
+    font-size: 0.85rem;
+    text-align: center;
+  }
+}
