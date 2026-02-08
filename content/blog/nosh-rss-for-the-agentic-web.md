@@ -40,6 +40,7 @@ Nosh is an open spec that embeds structured, machine-readable content in your pa
 - [The Schema](#the-schema-is-dead-simple)
 - [Zero Friction Integration](#zero-friction)
 - [Discovery](#how-agents-find-it)
+- [GEO: Why This Matters Now](#geo-why-this-matters-now)
 - [What's Next](#where-this-goes)
 
 ---
@@ -173,11 +174,26 @@ WordPress? A plugin injects it on save. Next.js? A component. Any CMS that can p
 
 The embedded approach means agents find nosh on the same page fetch they're already doing. No extra HTTP requests.
 
+## GEO: Why This Matters Now
+
+SEO optimized your content for Google's crawlers. **GEO — Generative Engine Optimization — optimizes your content for AI agents.**
+
+Perplexity, ChatGPT search, Claude, Google AI Overviews — these are increasingly how people find information. They scrape your HTML and try to extract answers. When they get it wrong, they hallucinate. When they get it right, they might not cite you.
+
+Nosh fixes both:
+
+- **Accuracy** — agents get structured facts, not parsed prose. No hallucinated steps.
+- **Attribution** — the `url` field points back to your page. Structured data is easier to cite correctly.
+- **Discoverability** — 4.1x more token-efficient means agents can consume more of your site for the same cost. More of your content surfaces in AI answers.
+- **Priority** — as AI search engines learn to check for nosh, sites that provide it become preferred sources. Same flywheel that made sitemaps and schema.org essential for SEO.
+
+**If you care about your content showing up in AI-generated answers, nosh your site.**
+
 ## Where This Goes
 
-Right now, nosh is a spec, a Rust validator CLI, a Zola template, and exactly one blog with it enabled (this one). 
+Right now, nosh is a spec, a Rust validator CLI, a Zola template, and exactly one blog with it enabled (this one).
 
-The real unlock is when an AI search engine — Perplexity, ChatGPT, Claude — starts checking for nosh data and preferencing sites that provide it. If being "noshed" means your content gets cited more accurately in AI-generated answers, every CMS will auto-generate it. Same flywheel that made sitemaps universal.
+The real unlock is when an AI search engine starts checking for nosh data and preferencing sites that provide it. If being "noshed" means your content gets cited more accurately in AI-generated answers, every CMS will auto-generate it. Same flywheel that made sitemaps universal.
 
 The spec and tools are open source under MIT: **[github.com/jbold/nosh](https://github.com/jbold/nosh)**
 
