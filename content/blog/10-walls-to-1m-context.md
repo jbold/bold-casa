@@ -6,6 +6,74 @@ description = "Step-by-step guide to enabling 1 million token context with Claud
 tags = ["openclaw", "claude", "debugging", "ai-infrastructure", "self-hosted"]
 [extra]
 og_image = ""
+
+[extra.nosh]
+type = "tutorial"
+language = "en"
+
+[extra.nosh.content]
+body = "Getting Claude Opus 4.6 with 1 million token context working on a self-hosted OpenClaw gateway requires overcoming 10 separate obstacles. This tutorial documents every wall hit and the exact fix for each one. The final proof cost $9.70 in API fees in thirty minutes."
+duration = "1 day (debugging), 30 minutes (if you follow this guide)"
+prerequisites = [
+    "A self-hosted OpenClaw gateway",
+    "Anthropic API key with Tier 4 access (pay-per-token, NOT OAuth/Max subscription)",
+    "Node.js v22+ via nvm",
+    "pnpm package manager",
+    "Linux/macOS with systemd"
+]
+key_findings = [
+    "OAuth tokens (sk-ant-oat) cap at 200K context regardless of tier",
+    "API keys (sk-ant-api03) with beta header context-1m-2025-08-07 unlock 1M",
+    "pi-ai model registry intentionally reports 200K as the safe default",
+    "Header merging with Object.assign() is last-write-wins — include all beta features",
+    "Zod schema validation errors in systemd services are invisible without journal monitoring"
+]
+
+[[extra.nosh.content.steps]]
+title = "Wall 1: Default context hardcoded to 200K"
+text = "DEFAULT_CONTEXT_TOKENS in src/agents/defaults.ts is hardcoded to 200,000. Change to 1,000,000 or override in config."
+
+[[extra.nosh.content.steps]]
+title = "Wall 2: Config pinned to old model"
+text = "Runtime config at ~/.openclaw/openclaw.json may still reference anthropic/claude-opus-4-5. Update to anthropic/claude-opus-4-6."
+
+[[extra.nosh.content.steps]]
+title = "Wall 3: Stale pi-ai dependency"
+text = "pi-ai@0.51.3 doesn't know Opus 4.6 exists — need 0.52.6+. Fix: pnpm install && pnpm build && pnpm ui:build"
+
+[[extra.nosh.content.steps]]
+title = "Wall 4: No git hook for dependency sync"
+text = "Create a git post-merge hook that runs pnpm install --frozen-lockfile when pnpm-lock.yaml changes."
+
+[[extra.nosh.content.steps]]
+title = "Wall 5: systemd can't find Node"
+text = "OpenClaw service assumes ~/.nvm/current/bin (fnm). With nvm the PATH is different. Fix: pre-build UI manually."
+
+[[extra.nosh.content.steps]]
+title = "Wall 6: Model registry reports wrong context size"
+text = "pi-ai reports Opus 4.6 at 200K intentionally — 1M requires beta header. Override contextWindow to 1000000 in config."
+
+[[extra.nosh.content.steps]]
+title = "Wall 7: Custom header kills OAuth auth"
+text = "Adding anthropic-beta header overwrites the default via Object.assign(). Must include ALL beta features, especially oauth-2025-04-20."
+
+[[extra.nosh.content.steps]]
+title = "Wall 8: pnpm build wipes the UI"
+text = "pnpm build wipes dist/ including the control UI. Always run pnpm build && pnpm ui:build together."
+
+[[extra.nosh.content.steps]]
+title = "Wall 9: 1M not available on flat-rate billing"
+text = "OAuth tokens on Max subscription cap at 200K. 1M requires API key billing with Tier 4 access."
+
+[[extra.nosh.content.steps]]
+title = "Wall 10: API key in wrong file causes crash loop"
+text = "Credentials go in auth-profiles.json, not openclaw.json. Use 'api_key' (underscore), not 'api-key' (hyphen). Wrong placement causes 17 crash restarts."
+
+[extra.nosh.content.cost_data]
+proof_session = "$9.70 in 30 minutes at 210K tokens"
+input_rate = "$5 per million tokens"
+output_rate = "$25 per million tokens"
+warning = "Costs compound per exchange because entire conversation history is re-sent each time"
 +++
 
 I wanted to upgrade my self-hosted AI gateway from Claude Opus 4.5 to Opus 4.6 and unlock the 1 million token context window.

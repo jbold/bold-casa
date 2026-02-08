@@ -30,6 +30,24 @@
     "timeRequired": "PT{{ page.reading_time }}M"
 }
 </script>
+
+{% if page.extra.nosh %}
+<script type="application/nosh+json">
+{
+    "nosh": "1.0",
+    "type": "{{ page.extra.nosh.type | default(value='article') }}",
+    "title": "{{ page.title }}",
+    "description": "{{ page.description | default(value='') }}",
+    "url": "{{ page.permalink | safe }}",
+    "language": "{{ page.extra.nosh.language | default(value='en') }}",
+    "authors": ["{{ config.extra.author }}"],
+    "published": "{{ page.date }}",
+    {% if page.updated %}"updated": "{{ page.updated }}",{% endif %}
+    {% if page.taxonomies.tags %}"tags": [{% for tag in page.taxonomies.tags %}"{{ tag }}"{% if not loop.last %}, {% endif %}{% endfor %}],{% endif %}
+    "content": {{ page.extra.nosh.content | json_encode(pretty=true) | safe }}
+}
+</script>
+{% endif %}
 {% endblock %}
 
 {% block content %}
