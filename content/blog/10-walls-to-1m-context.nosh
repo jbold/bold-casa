@@ -1,0 +1,81 @@
+{
+  "nosh": "1.0",
+  "type": "tutorial",
+  "title": "How To: Claude Opus 4.6 1 Million Token Context Running On OpenClaw",
+  "description": "Step-by-step guide to enabling 1 million token context with Claude Opus 4.6 on a self-hosted OpenClaw gateway. Includes the 10 issues I hit and how to fix each one.",
+  "url": "https://bold.casa/blog/10-walls-to-1m-context/",
+  "language": "en",
+  "authors": ["John Rembold"],
+  "published": "2026-02-06",
+  "tags": ["openclaw", "claude", "debugging", "ai-infrastructure", "self-hosted"],
+  "related": [
+    "https://github.com/openclaw/openclaw",
+    "https://llmstxt.org/"
+  ],
+  "content": {
+    "body": "Getting Claude Opus 4.6 with 1 million token context working on a self-hosted OpenClaw gateway requires overcoming 10 separate obstacles. This tutorial documents every wall hit and the exact fix for each one, discovered through a full day of debugging. The final proof cost $9.70 in API fees in thirty minutes.",
+    "prerequisites": [
+      "A self-hosted OpenClaw gateway (forked or cloned from openclaw/openclaw)",
+      "Anthropic API key with Tier 4 access (pay-per-token billing, NOT OAuth/Max subscription)",
+      "Node.js v22+ via nvm",
+      "pnpm package manager",
+      "Linux/macOS (systemd for service management)"
+    ],
+    "steps": [
+      {
+        "title": "Wall 1: Default context hardcoded to 200K",
+        "text": "DEFAULT_CONTEXT_TOKENS in src/agents/defaults.ts is hardcoded to 200,000. Change it to 1,000,000 or override in config. Fix: sed -i 's/200_000/1_000_000/' src/agents/defaults.ts"
+      },
+      {
+        "title": "Wall 2: Config pinned to old model",
+        "text": "Runtime config at ~/.openclaw/openclaw.json may still reference anthropic/claude-opus-4-5. Update the primary model to anthropic/claude-opus-4-6 and restart the gateway."
+      },
+      {
+        "title": "Wall 3: Stale pi-ai dependency",
+        "text": "OpenClaw uses pi-ai as its model abstraction layer. Version 0.51.3 doesn't know Opus 4.6 exists — need 0.52.6+. Fix: pnpm install && pnpm build && pnpm ui:build"
+      },
+      {
+        "title": "Wall 4: No git hook for dependency sync",
+        "text": "After git pull, node_modules can be stale if pnpm-lock.yaml changed. Create a git post-merge hook that runs pnpm install --frozen-lockfile when the lockfile changes."
+      },
+      {
+        "title": "Wall 5: systemd can't find Node",
+        "text": "OpenClaw's service environment assumes ~/.nvm/current/bin (fnm convention). With nvm, node is at ~/.nvm/versions/node/v22.22.0/bin/. systemd doesn't source .bashrc. Fix: pre-build the UI manually with pnpm ui:build before starting the service."
+      },
+      {
+        "title": "Wall 6: Model registry reports wrong context size",
+        "text": "pi-ai's model catalog reports Opus 4.6 at 200K context — intentionally, because 1M requires the beta header anthropic-beta: context-1m-2025-08-07. Override contextWindow to 1000000 in openclaw.json models.providers.anthropic.models[]."
+      },
+      {
+        "title": "Wall 7: Custom header kills OAuth auth",
+        "text": "Adding a custom anthropic-beta header overwrites the default one via Object.assign() (last-write-wins). The default includes oauth-2025-04-20 which is required for OAuth. Fix: include ALL beta features in your custom header, not just the new one."
+      },
+      {
+        "title": "Wall 8: pnpm build wipes the UI",
+        "text": "Every pnpm build wipes dist/ including the pre-built control UI. Always run pnpm build && pnpm ui:build together."
+      },
+      {
+        "title": "Wall 9: 1M context not available on flat-rate billing",
+        "text": "OAuth tokens (sk-ant-oat) on the Max subscription are capped at 200K. 1M context requires API key billing (sk-ant-api03) with Tier 4 access. This is a billing limitation, not a bug."
+      },
+      {
+        "title": "Wall 10: API key in wrong file causes crash loop",
+        "text": "Putting the API key in openclaw.json instead of auth-profiles.json, and using 'api-key' (hyphen) instead of 'api_key' (underscore), causes a Zod validation failure and 17 consecutive crash restarts. Fix: put credentials in ~/.openclaw/agents/main/agent/auth-profiles.json with type: api_key and key: sk-ant-api03-..."
+      }
+    ],
+    "duration": "1 day (debugging), 30 minutes (if you follow this guide)",
+    "key_findings": [
+      "OAuth tokens (sk-ant-oat) cap at 200K context regardless of tier",
+      "API keys (sk-ant-api03) with beta header context-1m-2025-08-07 unlock 1M",
+      "pi-ai model registry intentionally reports 200K as the safe default",
+      "Header merging with Object.assign() is last-write-wins — include all beta features",
+      "Zod schema validation errors in systemd services are invisible without journal monitoring"
+    ],
+    "cost_data": {
+      "proof_session": "$9.70 in 30 minutes at 210K tokens",
+      "input_rate": "$5 per million tokens",
+      "output_rate": "$25 per million tokens",
+      "warning": "Costs compound per exchange because entire conversation history is re-sent each time"
+    }
+  }
+}
