@@ -552,3 +552,21 @@ html[data-theme="dark"] .card:hover .card-title,
 html[data-theme="dark"] .card:focus-visible .card-title {
   color: #dfeaff !important;
 }
+
+/* ===== Fix: p-category hover contrast ===== */
+html[data-theme="dark"] a.p-category,
+html[data-theme="dark"] .tag a.p-category,
+html[data-theme="dark"] .bloglist-tags a.tag {
+  color: #9fc4ff !important;
+  background: rgba(125, 180, 255, 0.10) !important;
+  border: 1px solid rgba(125, 180, 255, 0.35) !important;
+}
+
+html[data-theme="dark"] a.p-category:hover,
+html[data-theme="dark"] a.p-category:focus-visible,
+html[data-theme="dark"] .tag a.p-category:hover,
+html[data-theme="dark"] .bloglist-tags a.tag:hover {
+  color: #ffffff !important;
+  background: #2a3f66 !important;
+  border-color: #9fc4ff !important;
+}
