@@ -696,3 +696,31 @@ html[data-theme="dark"] .bloglist-tags a.tag:hover {
     text-align: center;
   }
 }
+
+/* ===== Link contrast lock (requested) ===== */
+html[data-theme="dark"] a:any-link {
+  color: #8fc2ff;
+}
+
+html[data-theme="dark"] a:any-link:hover,
+html[data-theme="dark"] a:any-link:focus-visible {
+  color: #dbe9ff;
+  background: transparent !important;
+}
+
+html[data-theme="dark"] .e-content a:any-link,
+html[data-theme="dark"] .bloglist-content a:any-link {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(143, 194, 255, 0.7);
+}
+
+html[data-theme="dark"] .e-content a:any-link:hover,
+html[data-theme="dark"] .bloglist-content a:any-link:hover {
+  text-decoration-color: rgba(219, 233, 255, 0.95);
+}
+
+/* never wash out links with light bg on hover */
+html[data-theme="dark"] a:any-link:hover {
+  background-color: transparent !important;
+}
