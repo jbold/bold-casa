@@ -467,3 +467,41 @@ html[data-theme="light"] {
 .card:focus-visible .card-description {
   color: var(--card-desc-hover) !important;
 }
+
+/* ===== HOTFIX: force dark-mode hover contrast (requested) ===== */
+html[data-theme="dark"] a:hover {
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] .filter-controls .taxonomy-item a,
+html[data-theme="dark"] .filter-controls .taxonomy-item a:link,
+html[data-theme="dark"] .filter-controls .taxonomy-item a:visited {
+  background: #1f2633 !important;
+  color: #f5f8ff !important;
+  border-color: #8fb7ff !important;
+}
+
+html[data-theme="dark"] .filter-controls .taxonomy-item a:hover,
+html[data-theme="dark"] .filter-controls .taxonomy-item a:focus-visible,
+html[data-theme="dark"] .filter-controls .taxonomy-item a.active,
+html[data-theme="dark"] .filter-controls .taxonomy-item #all-projects-filter.active {
+  background: #2f3b52 !important;
+  color: #ffffff !important;
+  border-color: #b6ddff !important;
+}
+
+html[data-theme="dark"] .card:hover,
+html[data-theme="dark"] .card:focus-visible {
+  background: #1b2433 !important;
+  border-color: #9fc6ff !important;
+}
+
+html[data-theme="dark"] .card:hover .card-title,
+html[data-theme="dark"] .card:focus-visible .card-title {
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] .card:hover .card-description,
+html[data-theme="dark"] .card:focus-visible .card-description {
+  color: #eaf1ff !important;
+}
