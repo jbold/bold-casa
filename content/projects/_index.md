@@ -1,7 +1,7 @@
 +++
-title = "Projects"
-description = "Things I've built, am building, or want to build."
-sort_by = "date"
+title = "The Workshop"
+description = "Active builds, experiments, and systems."
+sort_by = "weight"
 +++
 
-More coming soon. The workshop is just opening up.
+A catalogue of active builds, systems, and experiments.
