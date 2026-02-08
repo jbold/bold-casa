@@ -6,7 +6,7 @@ description = "A secure, WASM-sandboxed AI agent runtime."
 tags = ["WASM", "Security", "Rust", "AI"]
 [extra]
 repo = "https://github.com/jbold/exoclaw"
-local_image = "projects/exoclaw.jpg"
+local_image = "projects/exoclaw_cover.jpg"
 +++
 
 <a href="https://github.com/jbold/exoclaw" class="button" target="_blank">View on GitHub ↗</a>

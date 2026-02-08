@@ -6,8 +6,7 @@ description = "Machine-readable companion files for AI agents. RSS for the agent
 tags = ["AI", "Spec", "Rust"]
 [extra]
 repo = "https://github.com/jbold/nosh"
-link_to = "" 
-local_image = "projects/nosh.png"
+local_image = "projects/nosh_cover.png"
 +++
 
 <a href="https://github.com/jbold/nosh" class="button" target="_blank">View on GitHub ↗</a>
