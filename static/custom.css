@@ -95,21 +95,64 @@ footer section {
 .card {
   border: 1px solid var(--border-soft) !important;
   border-radius: 12px !important;
-  transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease !important;
+  background: rgba(255, 255, 255, 0.015);
+  transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease, background 150ms ease !important;
 }
 
-.card:hover {
+.card:hover,
+.card:focus-visible {
   transform: translateY(-3px);
-  border-color: rgba(159, 178, 255, 0.42) !important;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+  border-color: rgba(159, 178, 255, 0.55) !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.32);
+  background: rgba(159, 178, 255, 0.08);
 }
 
 .card-title {
   font-weight: 730;
+  color: rgba(255,255,255,0.95) !important;
 }
 
 .card-description {
-  opacity: 0.86;
+  opacity: 0.92;
+  color: rgba(255,255,255,0.86) !important;
+}
+
+.card:hover .card-title,
+.card:focus-visible .card-title {
+  color: #ffffff !important;
+}
+
+.card:hover .card-description,
+.card:focus-visible .card-description {
+  color: rgba(255,255,255,0.9) !important;
+}
+
+/* Filter chips (projects page) */
+.filter-controls {
+  gap: 0.45rem;
+}
+
+.filter-controls .taxonomy-item a {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-soft);
+  color: rgba(255,255,255,0.88) !important;
+  border-radius: 999px;
+  padding: 0.5rem 0.85rem;
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+
+.filter-controls .taxonomy-item a:hover,
+.filter-controls .taxonomy-item a:focus-visible {
+  background: rgba(159, 178, 255, 0.18) !important;
+  color: #ffffff !important;
+  border-color: rgba(159, 178, 255, 0.6) !important;
+}
+
+.filter-controls .taxonomy-item a.active,
+.filter-controls .taxonomy-item #all-projects-filter.active {
+  background: rgba(159, 178, 255, 0.28) !important;
+  color: #ffffff !important;
+  border-color: rgba(159, 178, 255, 0.8) !important;
 }
 
 /* Link treatment */
