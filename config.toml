@@ -42,7 +42,7 @@ socials = [
     { name = "github", url = "https://github.com/jbold", icon = "github" },
 ]
 
-stylesheets = ["custom.css"]
+stylesheets = ["custom-v4.css"]
 
 # Tabi settings
 show_reading_time = true
