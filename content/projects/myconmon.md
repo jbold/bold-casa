@@ -6,8 +6,10 @@ description = "Personal Continuous Monitoring - drift detection with risk-based 
 tags = ["Security", "Ops", "Monitoring"]
 [extra]
 repo = "https://github.com/jbold/myconmon"
-status = "Beta"
+local_image = "projects/projects.jpg"
 +++
+
+<a href="https://github.com/jbold/myconmon" class="button" target="_blank">View on GitHub ↗</a>
 
 **MyConMon** (My Continuous Monitoring) is a system for tracking configuration drift and security posture on personal infrastructure.
 

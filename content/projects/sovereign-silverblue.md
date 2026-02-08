@@ -6,8 +6,10 @@ description = "Hardened, privacy-first Fedora Silverblue bootc image."
 tags = ["Linux", "Security", "OS"]
 [extra]
 repo = "https://github.com/jbold/sovereign-silverblue"
-status = "Stable"
+local_image = "projects/projects.jpg"
 +++
+
+<a href="https://github.com/jbold/sovereign-silverblue" class="button" target="_blank">View on GitHub ↗</a>
 
 A custom **Fedora Silverblue** image built with `bootc`, designed for privacy and security enthusiasts.
 

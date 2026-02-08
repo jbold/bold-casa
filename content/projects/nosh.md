@@ -6,8 +6,11 @@ description = "Machine-readable companion files for AI agents. RSS for the agent
 tags = ["AI", "Spec", "Rust"]
 [extra]
 repo = "https://github.com/jbold/nosh"
-status = "Active"
+link_to = "" 
+local_image = "projects/projects.jpg"
 +++
+
+<a href="https://github.com/jbold/nosh" class="button" target="_blank">View on GitHub ↗</a>
 
 **Nosh** is a specification and toolset for creating "machine-readable companion files" for web content. Think of it as **RSS for the agentic web**.
 

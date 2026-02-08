@@ -6,8 +6,10 @@ description = "A secure, WASM-sandboxed AI agent runtime."
 tags = ["WASM", "Security", "Rust", "AI"]
 [extra]
 repo = "https://github.com/jbold/exoclaw"
-status = "Prototype"
+local_image = "projects/projects.jpg"
 +++
+
+<a href="https://github.com/jbold/exoclaw" class="button" target="_blank">View on GitHub ↗</a>
 
 **Exoclaw** is an experimental runtime for AI agents, focusing on security and isolation.
 
