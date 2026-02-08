@@ -7,7 +7,7 @@ tags = ["AI", "Spec", "Rust"]
 [extra]
 repo = "https://github.com/jbold/nosh"
 link_to = "" 
-local_image = "projects/projects.jpg"
+local_image = "projects/nosh.jpg"
 +++
 
 <a href="https://github.com/jbold/nosh" class="button" target="_blank">View on GitHub ↗</a>

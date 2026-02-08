@@ -6,7 +6,7 @@ description = "Self-hosted AI assistant. The Lobster Way."
 tags = ["AI", "Assistant", "TypeScript"]
 [extra]
 repo = "https://github.com/jbold/openclaw"
-local_image = "projects/projects.jpg"
+local_image = "projects/openclaw.jpg"
 +++
 
 <a href="https://github.com/jbold/openclaw" class="button" target="_blank">View on GitHub ↗</a>
