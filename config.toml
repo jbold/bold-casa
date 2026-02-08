@@ -1,6 +1,7 @@
 base_url = "https://bold.casa"
 title = "bold.casa"
 description = "Workshop of John Rembold — builder, maker, inventor."
+author = "John Rembold"
 default_language = "en"
 theme = "tabi"
 
@@ -10,35 +11,44 @@ generate_feeds = true
 feed_filenames = ["atom.xml", "rss.xml"]
 
 taxonomies = [
-    {name = "tags", feed = true},
+    { name = "tags", feed = true },
 ]
 
 [markdown]
 highlight_code = true
+# Tabi supports: css (default), or built-in zola themes.
+# We'll use a built-in one for simplicity unless we setup the css files.
 highlight_theme = "dracula"
-# highlight_themes_css = [ ... ]
-render_emoji = true
+smart_punctuation = true
 external_links_target_blank = true
 external_links_no_follow = false
 external_links_no_referrer = true
-smart_punctuation = true
 
 [extra]
 author = "John Rembold"
-social_media = [
-    { name = "github", url = "https://github.com/jbold" },
+skin = "lavender" 
+# lavender is distinct and nice. Options: blue, teal, mint, red, monochrome...
+theme_switcher = true
+default_theme = "dark"
+
+# Menu configuration (Tabi uses 'menu', not 'navbar_items')
+menu = [
+    { name = "Projects", url = "projects", trailing_slash = true },
+    { name = "Blog", url = "blog", trailing_slash = true },
 ]
 
-# Tabi specific settings
-language_code = "en"
-theme_color = "#282a36"
+socials = [
+    { name = "github", url = "https://github.com/jbold", icon = "github" },
+]
 
-# Accessibility & Performance
-katex_enable = false
+# Tabi settings
+show_reading_time = true
+show_date = true
 copy_button = true
+email = "jr@bold.casa"
+encode_plaintext_email = false
+copyright = "$TITLE © $CURRENT_YEAR $AUTHOR"
 
-# Menu
-navbar_items = [
-    { code = "en", menu = "main", url = "projects", name = "Projects" },
-    { code = "en", menu = "main", url = "blog", name = "Blog" },
-]
+# [extra.analytics]
+# service = "goatcounter"
+# id = "..." 

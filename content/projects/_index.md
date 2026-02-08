@@ -1,8 +1,11 @@
 +++
-title = "The Workshop"
+title = "Projects"
 description = "Active builds, experiments, and systems."
 sort_by = "date"
-# template = "projects.html"
-+++
+template = "cards.html"
+insert_anchor_links = "left"
 
-A catalogue of active builds, systems, and experiments.
+[extra]
+show_reading_time = false
+quick_navigation_buttons = true
++++
