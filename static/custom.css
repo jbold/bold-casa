@@ -68,10 +68,7 @@ footer section {
   color: rgba(255,255,255,0.86);
 }
 
-/* Remove redundant section heading on home */
-.section-title.bottom-divider {
-  display: none;
-}
+/* Keep section titles visible globally (Projects/Blog need this) */
 
 /* Posts list cleanup */
 .bloglist-container {
