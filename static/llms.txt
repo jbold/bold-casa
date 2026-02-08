@@ -1,31 +1,21 @@
-# bold.casa
+# bold.casa — LLM Index
 
-## About
-Personal website of John Rembold — builder, maker, technologist, inventor.
-Renaissance builder working across tech, hardware, farming, and operational systems.
+> Builder notes, systems writeups, and project docs by John Rembold.
 
-## Author
-John Rembold
-- Location: Nashville, TN
-- Background: Software engineering, adtech, farming, self-hosted AI infrastructure
-- Strengths: Early trend detection, cross-domain synthesis, 0-to-1 building, process improvement
-- Languages: English, Chinese, German, Spanish, Czech
-- Countries lived/worked: USA, China, Mexico, Guatemala, Czech Republic
+## Start Here
+- /projects/
+- /now/
+- /blog/
 
-## Topics
-- Self-hosted AI (OpenClaw, Claude, local LLM infrastructure)
-- Building in public
-- Debugging and systems engineering
-- Maker culture, DIY, hardware
-- Rust, WASM, static site generation
-- Farming and operational systems
+## High-Signal Posts
+- /blog/nosh-rss-for-the-agentic-web/
+- /blog/10-walls-to-1m-context/
+- /blog/hello-world/
 
-## Content
-- Blog: https://bold.casa/blog/
-- Projects: https://bold.casa/projects/
-- RSS: https://bold.casa/rss.xml
-- Atom: https://bold.casa/atom.xml
+## Machine-Readable
+- /blog/nosh-rss-for-the-agentic-web.nosh
+- /rss.xml
+- /atom.xml
 
-## Contact
-- Email: jr@bold.casa
-- GitHub: https://github.com/jbold
+## Scope
+This site focuses on practical build logs: AI infrastructure, Linux hardening, operations, and real-world execution.

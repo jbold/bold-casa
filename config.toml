@@ -26,8 +26,8 @@ external_links_no_referrer = true
 
 [extra]
 author = "John Rembold"
-skin = "lavender" 
-# lavender is distinct and nice. Options: blue, teal, mint, red, monochrome...
+skin = "monochrome"
+# restrained, editorial look for better readability + perceived professionalism
 theme_switcher = true
 default_theme = "dark"
 

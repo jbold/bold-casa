@@ -4,24 +4,23 @@ title = "Home"
 [extra]
 section_path = "blog/_index.md"
 max_posts = 5
-header = { title = "The Workshop", img = "img/seedling.png", img_alt = "Seedling" }
+header = { title = "Builder. Operator. Inventor.", img = "img/seedling.png", img_alt = "bold.casa" }
 +++
 
-Welcome to the digital workshop.
+I build systems that work in the real world — software, infrastructure, and physical operations.
 
-Here I document the process of building things—sometimes with code, sometimes with power tools, often with both.
+[See Projects →](/projects/) · [What I'm doing now →](/now/)
 
-### The Philosophy
-Take it apart. Understand how it works. Build it better (or at least different).
+### Philosophy
+Take it apart. Understand how it works. Build it better.
 
-### 🛠️ The Toolkit
-A selection of the tools I use to build systems.
+### Toolkit
 
-<div class="tags">
+<div class="tags hero-tags">
     <span class="tag">Rust</span>
-    <span class="tag">Linux (Silverblue)</span>
-    <span class="tag">Python</span>
-    <span class="tag">LLMs / Agents</span>
-    <span class="tag">Hardware / IoT</span>
-    <span class="tag">Systems Ops</span>
+    <span class="tag">Linux / Silverblue</span>
+    <span class="tag">TypeScript</span>
+    <span class="tag">LLM Agents</span>
+    <span class="tag">Ops + Monitoring</span>
+    <span class="tag">Hardware</span>
 </div>

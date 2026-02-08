@@ -1,162 +1,146 @@
-/* bold.casa custom overrides — The Workshop aesthetic */
+/* bold.casa — pro pass (fast, accessible, restrained) */
 
-/* ===== HERO / BANNER ===== */
-#banner-container-home {
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(30, 30, 46, 0.4) 50%, rgba(139, 92, 246, 0.05) 100%);
-    border: 1px solid rgba(139, 92, 246, 0.15);
-    border-radius: 12px;
-    padding: 2.5rem 2rem;
-    margin-bottom: 2rem;
+:root {
+  --accent: #9fb2ff;
+  --accent-soft: rgba(159, 178, 255, 0.14);
+  --border-soft: rgba(255, 255, 255, 0.08);
 }
 
-#home-banner-header {
-    font-size: 3rem;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    background: linear-gradient(135deg, #c4b5fd, #8b5cf6, #a78bfa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+/* Layout rhythm */
+.content,
+.navbar,
+footer section {
+  max-width: 980px;
+  margin-inline: auto;
 }
 
-#banner-home-subtitle p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    opacity: 0.85;
-}
-
-/* Hide the default seedling — replace with nothing or custom */
-#image-container-home {
-    display: none;
-}
-
-/* ===== TOOLKIT TAGS (homepage) ===== */
-#banner-home-subtitle .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-#banner-home-subtitle .tag {
-    display: inline-block;
-    padding: 0.35rem 0.85rem;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    background: rgba(139, 92, 246, 0.12);
-    color: #c4b5fd;
-    border: 1px solid rgba(139, 92, 246, 0.25);
-    transition: all 0.2s ease;
-}
-
-#banner-home-subtitle .tag:hover {
-    background: rgba(139, 92, 246, 0.25);
-    border-color: rgba(139, 92, 246, 0.5);
-}
-
-/* ===== REMOVE "Home" section title ===== */
-.section-title.bottom-divider {
-    display: none;
-}
-
-/* ===== NAV ===== */
+/* Header */
 .navbar {
-    border-bottom: 1px solid rgba(139, 92, 246, 0.15);
-    padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-soft);
 }
 
 .home-title {
-    font-weight: 800;
-    letter-spacing: -0.02em;
+  font-weight: 750;
+  letter-spacing: -0.02em;
 }
 
-/* ===== BLOG LIST ===== */
+/* Hero */
+#banner-container-home {
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+  padding: 2rem 2rem 1.75rem;
+  margin-bottom: 2rem;
+}
+
+#home-banner-header {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+#banner-home-subtitle p {
+  max-width: 65ch;
+  color: rgba(255,255,255,0.82);
+}
+
+#image-container-home {
+  display: none;
+}
+
+/* Hero tags */
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.8rem;
+}
+
+.hero-tags .tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 650;
+  padding: 0.34rem 0.6rem;
+  border: 1px solid var(--border-soft);
+  background: rgba(255,255,255,0.03);
+  color: rgba(255,255,255,0.86);
+}
+
+/* Remove redundant section heading on home */
+.section-title.bottom-divider {
+  display: none;
+}
+
+/* Posts list cleanup */
+.bloglist-container {
+  border-top: 1px solid var(--border-soft);
+  margin-top: 1rem;
+}
+
 .bloglist-title a {
-    font-weight: 700;
-    transition: color 0.2s ease;
+  font-weight: 700;
+}
+
+.bloglist-content .description {
+  max-width: 68ch;
 }
 
 .bloglist-container .tag {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-weight: 600;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 650;
 }
 
-/* ===== PROJECT CARDS ===== */
+/* Cards */
 .card {
-    border: 1px solid rgba(139, 92, 246, 0.15) !important;
-    border-radius: 12px !important;
-    transition: all 0.3s ease !important;
-    overflow: hidden;
+  border: 1px solid var(--border-soft) !important;
+  border-radius: 12px !important;
+  transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease !important;
 }
 
 .card:hover {
-    border-color: rgba(139, 92, 246, 0.4) !important;
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(139, 92, 246, 0.15);
-}
-
-.card-image {
-    border-radius: 0 !important;
+  transform: translateY(-3px);
+  border-color: rgba(159, 178, 255, 0.42) !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.28);
 }
 
 .card-title {
-    font-weight: 700;
+  font-weight: 730;
 }
 
 .card-description {
-    opacity: 0.8;
-    font-size: 0.9rem;
+  opacity: 0.86;
 }
 
-/* ===== PAGES (articles, /now, projects) ===== */
-.article-title {
-    font-weight: 800;
-    letter-spacing: -0.02em;
+/* Link treatment */
+a:hover {
+  color: var(--accent);
 }
 
-/* Admonition (specs block) styling */
+.content a:not(.tag):not(.card):not(.nav-links):hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Specs block polish */
 .admonition.info {
-    border-radius: 10px;
-    border-left-width: 4px;
+  border-radius: 10px;
+  border-left-width: 3px;
 }
 
-/* ===== FOOTER ===== */
+/* Footer */
 footer {
-    border-top: 1px solid rgba(139, 92, 246, 0.15);
+  border-top: 1px solid var(--border-soft);
 }
 
 footer .credits {
-    opacity: 0.6;
+  opacity: 0.72;
 }
 
-/* ===== GENERAL POLISH ===== */
+/* Selection */
 ::selection {
-    background: rgba(139, 92, 246, 0.3);
-    color: #fff;
-}
-
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Better link hover */
-.content a:not(.tag):not(.card):not(.nav-links):hover {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-    #home-banner-header {
-        font-size: 2.2rem;
-    }
-    
-    #banner-container-home {
-        padding: 1.5rem 1rem;
-    }
+  background: var(--accent-soft);
 }
