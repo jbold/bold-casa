@@ -6,7 +6,7 @@ description = "Personal Continuous Monitoring - drift detection with risk-based 
 tags = ["Security", "Ops", "Monitoring"]
 [extra]
 repo = "https://github.com/jbold/myconmon"
-local_image = "projects/myconmon.jpg"
+local_image = "projects/myconmon.png"
 +++
 
 <a href="https://github.com/jbold/myconmon" class="button" target="_blank">View on GitHub ↗</a>

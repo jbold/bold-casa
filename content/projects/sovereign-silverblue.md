@@ -6,7 +6,7 @@ description = "Hardened, privacy-first Fedora Silverblue bootc image."
 tags = ["Linux", "Security", "OS"]
 [extra]
 repo = "https://github.com/jbold/sovereign-silverblue"
-local_image = "projects/silverblue.jpg"
+local_image = "projects/silverblue.png"
 +++
 
 <a href="https://github.com/jbold/sovereign-silverblue" class="button" target="_blank">View on GitHub ↗</a>
