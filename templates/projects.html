@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title }} — {{ config.title }}{% endblock %}
+
+{% block content %}
+<header class="section-header">
+    <h1>{{ section.title }}</h1>
+    {% if section.description %}
+    <p class="section-desc">{{ section.description }}</p>
+    {% endif %}
+</header>
+
+<div class="project-grid">
+    {% for page in section.pages | sort(attribute="date") | reverse %}
+    <article class="project-card">
+        <div class="project-thumb">
+            {# Placeholder until real images are generated #}
+            <img src="https://placehold.co/600x350/1c2128/f0883e?text={{ page.title | urlencode }}" alt="{{ page.title }}">
+        </div>
+        <div class="project-content">
+            <div class="project-meta">
+                <span class="status {{ page.extra.status | lower }}">{{ page.extra.status }}</span>
+                {% if page.taxonomies.tags %}
+                <span class="tech">{{ page.taxonomies.tags | first }}</span>
+                {% endif %}
+            </div>
+            
+            <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
+            <p>{{ page.description }}</p>
+            
+            <div class="project-links">
+                <a href="{{ page.permalink }}" class="btn-link">Read More</a>
+                {% if page.extra.repo %}
+                <a href="{{ page.extra.repo }}" class="btn-link secondary" target="_blank">GitHub ↗</a>
+                {% endif %}
+            </div>
+        </div>
+    </article>
+    {% endfor %}
+</div>
+{% endblock %}
