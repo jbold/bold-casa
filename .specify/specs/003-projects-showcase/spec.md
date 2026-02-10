@@ -68,7 +68,21 @@ A developer viewing a project page can click directly through to the GitHub repo
 - **FR-002**: Projects section MUST be sorted by date (newest first).
 - **FR-003**: Each project page MUST have TOML front matter with: `title`, `date`, `description`, `tags`.
 - **FR-004**: Each project page SHOULD have `[extra]` fields: `repo` (GitHub URL), `local_image` (cover image path).
-- **FR-005**: Each project page MUST contain an HTML admonition info block with Status, Stack, Role, and License metadata.
+- **FR-005**: Each project page MUST contain an HTML admonition info block with Status, Stack, Role, and License metadata. The expected syntax is:
+  ```html
+  <div class="admonition info">
+      <div class="admonition-icon admonition-icon-info"></div>
+      <div class="admonition-content">
+          <strong class="admonition-title">Specs</strong>
+          <ul>
+              <li><strong>Status:</strong> [emoji] [Active|Prototype|Beta|Stable|Live]</li>
+              <li><strong>Stack:</strong> [comma-separated technologies]</li>
+              <li><strong>Role:</strong> [role description]</li>
+              <li><strong>License:</strong> [license name]</li>
+          </ul>
+      </div>
+  </div>
+  ```
 - **FR-006**: Each project page with a `repo` URL MUST display a "View on GitHub" button that opens in a new tab.
 - **FR-007**: Reading time MUST be hidden on project pages (`show_reading_time = false` in section config).
 - **FR-008**: Project cover images MUST be stored in `static/projects/`.
@@ -83,6 +97,6 @@ A developer viewing a project page can click directly through to the GitHub repo
 ### Measurable Outcomes
 
 - **SC-001**: All project pages build without errors and produce non-empty HTML files.
-- **SC-002**: Every project page contains an admonition info block with Status, Stack, and Role fields.
+- **SC-002**: Every project page contains an admonition info block with Status, Stack, Role, and License fields.
 - **SC-003**: The projects section renders as a card grid (not a list) on `/projects/`.
 - **SC-004**: Cover images referenced in project front matter exist in `static/projects/`.

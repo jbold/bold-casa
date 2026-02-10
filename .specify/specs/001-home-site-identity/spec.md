@@ -11,9 +11,9 @@
 
 A new visitor lands on bold.casa and immediately understands who John Rembold is, what he builds, and how to explore the site. The hero section communicates identity and expertise without requiring a scroll.
 
-**Why this priority**: The home page is the primary entry point. If a visitor can't orient within 5 seconds, they bounce.
+**Why this priority**: The home page is the primary entry point. If a visitor can't quickly orient, they bounce.
 
-**Independent Test**: Navigate to `/` and verify the hero header, tagline, toolkit tags, and navigation links are all visible above the fold.
+**Independent Test**: Build the site and verify that `public/index.html` contains the hero header title, philosophy statement, toolkit tags, and navigation links.
 
 **Acceptance Scenarios**:
 

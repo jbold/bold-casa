@@ -106,9 +106,26 @@ An AI agent consuming a blog post gets structured Nosh metadata embedded in the 
 - **FR-006**: External links MUST open in a new tab (`external_links_target_blank = true`) with no referrer (`external_links_no_referrer = true`).
 - **FR-007**: Tag taxonomy MUST generate per-tag feeds (`feed = true` on tags taxonomy).
 - **FR-008**: The site MUST generate both `atom.xml` and `rss.xml` feed files.
-- **FR-009**: Posts with `[extra.nosh]` front matter MUST include `type` and `language` fields at minimum.
+- **FR-009**: IF a blog post includes an `[extra.nosh]` section, THEN it MUST contain `type` and `language` fields at minimum. Posts without `[extra.nosh]` are not required to have Nosh metadata.
 - **FR-010**: Companion `.nosh` files MUST be valid JSON.
 - **FR-011**: The blog section MUST use `section.html` as the section template and `page.html` as the page template.
+
+### Blog Post Front Matter Schema
+
+Every blog post in `content/blog/` uses TOML front matter (`+++` delimiters). Fields:
+
+| Field | Required | Type | Description |
+|-------|----------|------|-------------|
+| `title` | Yes | String | Post title |
+| `date` | Yes | Date (YYYY-MM-DD) | Publication date |
+| `description` | Yes | String | Used for meta description, OG tags, and feed summaries |
+| `[taxonomies] tags` | Recommended | Array of strings | Topic tags for categorization |
+| `[extra] og_image` | Optional | String (URL) | Custom Open Graph image |
+| `[extra.nosh] type` | Required if `[extra.nosh]` present | String | Nosh content type (e.g., "article", "tutorial") |
+| `[extra.nosh] language` | Required if `[extra.nosh]` present | String | Content language code (e.g., "en") |
+| `[extra.nosh.content] body` | Recommended if nosh present | String | Machine-readable content summary |
+| `[extra.nosh.content] key_points` | Optional | Array of strings | Key takeaways for AI consumption |
+| `[extra.nosh.content] key_findings` | Optional | Array of strings | Key findings (alternative to key_points) |
 
 ### Key Entities
 

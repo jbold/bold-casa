@@ -49,7 +49,7 @@ Both dark and light modes provide sufficient contrast for readability, with acce
 
 **Acceptance Scenarios**:
 
-1. **Given** the site is in dark mode (default), **When** text renders, **Then** primary text (`--text: #e8edf5`) has sufficient contrast against the background (`--bg: #0f1217`).
+1. **Given** the site is in dark mode (default), **When** text renders, **Then** primary text (`--text: #e8edf5`) meets WCAG AA contrast ratio (minimum 4.5:1) against the background (`--bg: #0f1217`). Current ratio: ~14.3:1.
 2. **Given** a visitor switches to light mode, **When** the theme changes, **Then** all tokens update via `[data-theme="light"]` CSS selectors and text remains readable.
 3. **Given** link colors use `--accent-blue`, **When** they render in either mode, **Then** they are visually distinct from body text and have hover states.
 
@@ -73,6 +73,7 @@ Both dark and light modes provide sufficient contrast for readability, with acce
 - **FR-006**: Components MUST include: card styles (for projects), tag chips (for toolkit and taxonomy), admonition blocks (for project metadata), hero section (for home page), and code blocks (for blog posts).
 - **FR-007**: Link hover states MUST provide visual feedback (color change, underline, or both).
 - **FR-008**: The monochrome skin (`skin = "monochrome"`) from tabi MUST be active.
+- **FR-009**: When the user's system preference is `prefers-reduced-motion: reduce`, smooth scrolling and CSS transitions MUST be disabled or reduced.
 
 ### Key Entities
 
