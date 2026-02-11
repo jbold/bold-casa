@@ -1,0 +1,579 @@
+/* bold.casa — Blueprint Lab v5
+   Clean rewrite of the design system.
+   Single-pass architecture. No !important (except reduced-motion).
+   Aligns with tabi's native CSS custom properties.
+
+   Load order: main.css → custom-v5.css → monochrome.css (skin)
+   Skin overrides --primary-color only. We use --blueprint-accent
+   for decorative elements that should keep their color regardless of skin.
+*/
+
+/* =========================
+   1) TOKENS — DARK (default)
+========================= */
+:root,
+[data-theme="dark"] {
+  /* Override tabi's native variables */
+  --background-color: #0f1217;
+  --bg-0: #151a22;
+  --bg-1: #1a2030;
+  --bg-2: #1a2130;
+  --bg-3: #243040;
+  --hover-color: #ffffff;
+  --text-color: #e8edf5;
+  --text-color-high-contrast: #f2f6fc;
+  --meta-color: #a8b3c5;
+  --divider-color: rgba(180, 203, 236, 0.14);
+
+  /* Blueprint Lab decorative tokens (skin-independent) */
+  --blueprint-accent: #8bc2ff;
+  --accent-cyan: #6fd6de;
+  --accent-amber: #f3bd66;
+  --accent-green: #96cfa8;
+  --grid-line: rgba(139, 194, 255, 0.06);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  --shadow-card: 0 2px 14px rgba(0, 0, 0, 0.22);
+  --shadow-card-hover: 0 14px 36px rgba(0, 0, 0, 0.33);
+
+  --measure: 68ch;
+}
+
+/* =========================
+   2) TOKENS — LIGHT
+========================= */
+[data-theme="light"] {
+  --background-color: #f8fafc;
+  --bg-0: #eef2f7;
+  --bg-1: #e4e9f0;
+  --bg-2: #ffffff;
+  --bg-3: #d5dce6;
+  --hover-color: #1e3a5f;
+  --text-color: #1a1f2e;
+  --text-color-high-contrast: #0f1219;
+  --meta-color: #5b6577;
+  --divider-color: rgba(30, 50, 80, 0.12);
+
+  --blueprint-accent: #2563eb;
+  --accent-cyan: #0891b2;
+  --accent-amber: #d97706;
+  --accent-green: #059669;
+  --grid-line: rgba(37, 99, 235, 0.04);
+
+  --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================
+   3) GLOBAL / GRID TEXTURE
+========================= */
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  background-color: var(--background-color);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+    radial-gradient(circle at 20% 0%, rgba(111, 214, 222, 0.08), transparent 40%);
+  background-size: 28px 28px, 28px 28px, auto;
+  background-attachment: fixed;
+}
+
+.content,
+.navbar,
+footer section {
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--blueprint-accent) 30%, transparent);
+  color: var(--text-color-high-contrast);
+}
+
+/* =========================
+   4) TYPOGRAPHY
+========================= */
+h1,
+.article-title,
+#home-banner-header {
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  font-weight: 800;
+}
+
+h2,
+.card-title,
+.bloglist-title a {
+  letter-spacing: -0.018em;
+  font-weight: 740;
+}
+
+p,
+.bloglist-content .description,
+.card-description {
+  color: var(--meta-color);
+  line-height: 1.7;
+}
+
+/* Editorial measure */
+#banner-home-subtitle p,
+.bloglist-content .description,
+.e-content.body p,
+.e-content.body li {
+  max-width: var(--measure);
+}
+
+/* =========================
+   5) NAVIGATION
+========================= */
+.navbar {
+  border-bottom: 1px solid var(--divider-color);
+  margin-bottom: 1.5rem;
+}
+
+.home-title {
+  font-weight: 780;
+  letter-spacing: -0.02em;
+}
+
+.nav-links:hover {
+  color: var(--blueprint-accent);
+}
+
+/* =========================
+   6) HERO / HOME BANNER
+========================= */
+#banner-container-home {
+  border: 1px solid var(--divider-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.018), rgba(255, 255, 255, 0.006)),
+    repeating-linear-gradient(
+      0deg,
+      var(--grid-line) 0,
+      var(--grid-line) 1px,
+      transparent 1px,
+      transparent 22px
+    );
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Corner marks */
+#banner-container-home::before,
+#banner-container-home::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-top: 1px solid color-mix(in srgb, var(--blueprint-accent) 65%, transparent);
+  border-left: 1px solid color-mix(in srgb, var(--blueprint-accent) 65%, transparent);
+  top: 12px;
+  left: 12px;
+}
+
+#banner-container-home::after {
+  transform: rotate(180deg);
+  top: auto;
+  left: auto;
+  bottom: 12px;
+  right: 12px;
+}
+
+#home-banner-header {
+  font-size: clamp(2rem, 4.6vw, 3.4rem);
+  margin-bottom: 1rem;
+  color: var(--text-color-high-contrast);
+}
+
+#image-container-home {
+  display: none;
+}
+
+/* =========================
+   7) CHIPS / TAGS
+========================= */
+.hero-tags,
+.filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.hero-tags .tag,
+.filter-controls .taxonomy-item a,
+.meta .tag a,
+.tags .tag {
+  border: 1px solid var(--divider-color);
+  border-radius: 999px;
+  background: var(--bg-0);
+  color: var(--text-color);
+  font-size: 0.73rem;
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+  font-weight: 650;
+  padding: 0.34rem 0.72rem;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.hero-tags .tag:hover,
+.filter-controls .taxonomy-item a:hover,
+.filter-controls .taxonomy-item a:focus-visible,
+.meta .tag a:hover,
+.tags .tag:hover {
+  background: var(--bg-3);
+  border-color: var(--blueprint-accent);
+  color: var(--text-color-high-contrast);
+}
+
+.filter-controls .taxonomy-item a.active,
+.filter-controls .taxonomy-item #all-projects-filter.active {
+  background: var(--bg-3);
+  border-color: var(--blueprint-accent);
+  color: var(--text-color-high-contrast);
+}
+
+/* =========================
+   8) CARDS
+========================= */
+.cards {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 900px;
+  container-type: inline-size;
+}
+
+.card {
+  border: 1px solid var(--divider-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-2);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  position: relative;
+}
+
+/* SPEC badge */
+.card::before {
+  content: "SPEC";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.62rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--accent-amber) 80%, var(--text-color-high-contrast));
+  background: color-mix(in srgb, var(--accent-amber) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent-amber) 55%, transparent);
+  border-radius: 999px;
+  padding: 0.22rem 0.5rem;
+  z-index: 2;
+}
+
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--blueprint-accent);
+  box-shadow: var(--shadow-card-hover);
+  background: var(--bg-0);
+}
+
+.card:hover .card-title,
+.card:focus-visible .card-title {
+  color: var(--text-color-high-contrast);
+}
+
+.card:hover .card-description,
+.card:focus-visible .card-description {
+  color: var(--text-color);
+}
+
+.card-image {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-bottom: 1px solid var(--divider-color);
+}
+
+.card-title {
+  color: var(--text-color-high-contrast);
+  font-size: 2rem;
+}
+
+.card-description {
+  color: var(--meta-color);
+  font-size: 1.02rem;
+  line-height: 1.62;
+}
+
+@container (max-width: 820px) {
+  .card-title {
+    font-size: 1.6rem;
+  }
+  .card-description {
+    font-size: 0.98rem;
+  }
+}
+
+@supports (grid-template-rows: masonry) {
+  .cards {
+    grid-template-rows: masonry;
+    align-tracks: start;
+  }
+}
+
+/* Pre/code/table blocks — prevent horizontal page overflow */
+pre {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.e-content table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+pre code {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* =========================
+   9) BLOG LIST
+========================= */
+.meta,
+.bloglist-meta,
+time {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  letter-spacing: 0.01em;
+}
+
+/* =========================
+   10) SECTION / PAGE FRAMING
+========================= */
+.title-container,
+h1.section-title,
+h1.article-title,
+main > h1 {
+  position: relative;
+}
+
+/* Top rule motif */
+main > h1::after,
+.title-container::after {
+  content: "";
+  display: block;
+  margin-top: 0.55rem;
+  width: min(100%, 520px);
+  border-bottom: 1px solid var(--divider-color);
+}
+
+/* Specs block */
+.admonition.info {
+  border-radius: var(--radius-sm);
+  border-left-width: 3px;
+  border-left-color: var(--accent-cyan);
+  background: color-mix(in srgb, var(--accent-cyan) 8%, transparent);
+}
+
+/* =========================
+   11) LINKS
+========================= */
+a:hover {
+  color: var(--blueprint-accent);
+}
+
+.content a:not(.tag):not(.card):not(.nav-links):hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.e-content a,
+.bloglist-content a:not(.tag) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: color-mix(in srgb, var(--primary-color) 50%, transparent);
+}
+
+.e-content a:hover,
+.bloglist-content a:not(.tag):hover {
+  text-decoration-color: var(--primary-color);
+}
+
+:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent-cyan) 80%, white);
+  outline-offset: 2px;
+}
+
+/* =========================
+   12) FOOTER
+========================= */
+footer {
+  border-top: 1px solid var(--divider-color);
+}
+
+footer .credits {
+  opacity: 0.78;
+}
+
+/* =========================
+   13) RESPONSIVE (≤768px)
+========================= */
+@media (max-width: 768px) {
+  .content,
+  .navbar,
+  footer section {
+    max-width: 94vw;
+  }
+
+  #banner-container-home {
+    padding: 1.5rem;
+  }
+
+  #home-banner-header {
+    font-size: 2.25rem;
+  }
+
+  .card-title {
+    font-size: 1.55rem;
+  }
+
+  .filter-controls {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    padding-bottom: 0.25rem;
+  }
+
+  .filter-controls .taxonomy-item {
+    flex: 0 0 auto;
+  }
+
+  .nav-navs ul {
+    gap: 0.45rem;
+  }
+}
+
+/* =========================
+   14) RESPONSIVE (≤640px)
+========================= */
+@media (max-width: 640px) {
+  .content,
+  .navbar,
+  footer section {
+    max-width: 100%;
+    padding-inline: 0.9rem;
+  }
+
+  #banner-container-home {
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  #home-banner-header {
+    font-size: 1.8rem;
+    line-height: 1.1;
+  }
+
+  #banner-home-subtitle p {
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .hero-tags {
+    gap: 0.4rem;
+  }
+
+  .hero-tags .tag,
+  .filter-controls .taxonomy-item a,
+  .tags .tag,
+  .meta .tag a {
+    font-size: 0.68rem;
+    padding: 0.28rem 0.55rem;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+
+  .card::before {
+    top: 8px;
+    right: 8px;
+    font-size: 0.56rem;
+    padding: 0.18rem 0.38rem;
+  }
+
+  .card-image {
+    aspect-ratio: 16 / 10;
+  }
+
+  .card-title {
+    font-size: 1.28rem;
+    line-height: 1.2;
+  }
+
+  .card-description {
+    font-size: 0.94rem;
+    line-height: 1.5;
+  }
+
+  .bloglist-container {
+    margin-top: 0.5rem;
+  }
+
+  .bloglist-meta,
+  .bloglist-content {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .bloglist-title a {
+    font-size: 1.2rem;
+    line-height: 1.25;
+  }
+
+  .bloglist-content .description {
+    font-size: 0.95rem;
+  }
+
+  footer {
+    margin-top: 1rem;
+  }
+
+  footer .credits {
+    font-size: 0.85rem;
+    text-align: center;
+  }
+}
+
+/* =========================
+   15) ACCESSIBILITY / MOTION
+========================= */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

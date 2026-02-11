@@ -21,19 +21,19 @@ for f in $(find public -name "*.html"); do
 done
 
 # Check CSS exists
-if [ ! -s "public/style.css" ]; then
-    echo "❌ Missing or empty style.css"
+if [ ! -s "public/main.css" ]; then
+    echo "❌ Missing or empty main.css"
     errors=$((errors + 1))
 else
-    echo "✅ style.css present ($(wc -c < public/style.css) bytes)"
+    echo "✅ main.css present ($(wc -c < public/main.css) bytes)"
 fi
 
 # [Spec 006 FR-005] Check custom design system CSS exists
-if [ ! -s "public/custom-v4.css" ]; then
-    echo "❌ Missing or empty custom-v4.css (Spec 006 FR-005)"
+if [ ! -s "public/custom-v5.css" ]; then
+    echo "❌ Missing or empty custom-v5.css (Spec 006 FR-005)"
     errors=$((errors + 1))
 else
-    echo "✅ custom-v4.css present ($(wc -c < public/custom-v4.css) bytes)"
+    echo "✅ custom-v5.css present ($(wc -c < public/custom-v5.css) bytes)"
 fi
 
 # Check feeds exist
@@ -224,7 +224,7 @@ echo "📊 Summary:"
 echo "   Pages:    $page_count"
 echo "   Posts:    $post_count"
 echo "   Projects: $project_count"
-echo "   CSS:      $(wc -c < public/style.css) bytes (tabi) + $(wc -c < public/custom-v4.css 2>/dev/null || echo '0') bytes (custom)"
+echo "   CSS:      $(wc -c < public/main.css) bytes (tabi) + $(wc -c < public/custom-v5.css 2>/dev/null || echo '0') bytes (custom)"
 echo "   Errors:   $errors"
 
 if [ $errors -gt 0 ]; then
