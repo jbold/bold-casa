@@ -47,7 +47,7 @@ stylesheets = ["custom.css"]
 show_reading_time = true
 show_date = true
 copy_button = true
-email = "jr@bold.casa"
+email = "johnrembold@gmail.com"
 encode_plaintext_email = false
 copyright = "$TITLE © $CURRENT_YEAR $AUTHOR"
 
