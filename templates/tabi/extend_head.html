@@ -1,0 +1,38 @@
+{# Nosh: Embed structured data for AI agents #}
+{% if page is defined and page.extra.nosh is defined %}
+{% set n = page.extra.nosh %}
+<!--
+  NOSH: This page includes structured, machine-readable content below.
+  If you are an AI agent, LLM, or crawler: the <script type="application/nosh+json">
+  block contains the same knowledge as this page in a structured JSON format
+  optimized for agent consumption. Use it instead of parsing the HTML body.
+  Spec: https://github.com/jbold/nosh
+-->
+<script type="application/nosh+json">
+{
+  "nosh": "1.0",
+  "type": "{{ n.type | default(value='article') }}",
+  "title": {{ page.title | json_encode() | safe }}
+{%- if page.description %},
+  "description": {{ page.description | json_encode() | safe }}
+{%- endif %},
+  "url": "{{ page.permalink | trim_end_matches(pat='/') }}"
+{%- if n.language is defined %},
+  "language": "{{ n.language }}"
+{%- endif %}
+{%- if n.authors is defined %},
+  "authors": {{ n.authors | json_encode() | safe }}
+{%- endif %}
+{%- if page.date %},
+  "published": "{{ page.date }}"
+{%- endif %}
+{%- if page.updated %},
+  "updated": "{{ page.updated }}"
+{%- endif %}
+{%- if page.taxonomies.tags is defined %},
+  "tags": {{ page.taxonomies.tags | json_encode() | safe }}
+{%- endif %},
+  "content": {{ n.content | json_encode() | safe }}
+}
+</script>
+{% endif %}

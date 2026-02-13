@@ -4,6 +4,21 @@ date = 2026-02-06
 description = "Why I built this site, what it's for, and what's coming."
 [taxonomies]
 tags = ["meta", "building-in-public"]
+[extra]
+og_image = ""
+
+[extra.nosh]
+type = "article"
+language = "en"
+
+[extra.nosh.content]
+body = "Introduction to bold.casa — a personal workshop site by John Rembold covering AI tooling, self-hosted infrastructure, debugging sagas, and building in public. The site is the digital equivalent of a craftsman's workshop."
+key_points = [
+    "Built by someone who grew up in a piano workshop and has been taking things apart ever since",
+    "Covers AI tooling and infrastructure, building in public, debugging sagas, and making things",
+    "Focus on self-hosted, sovereign tech with no big-tech dependency",
+    "First real post: unlocking 1M token context in Claude Opus 4.6 through OpenClaw"
+]
 +++
 
 I grew up in my father's piano workshop. He's a true craftsman — an artist who taught me everything about cars, guns, music, and building things. He was my first mentor and teacher.
