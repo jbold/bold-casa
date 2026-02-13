@@ -474,4 +474,4 @@ All code is available in the [surrealdb-prototype](https://github.com/jbold/surr
 
 ---
 
-*Built by a human and his AI familiar, Kit, on a machine that refuses to send data to the cloud.*
+*Built by a human and his AI familiar, Kit.*
