@@ -56,6 +56,8 @@ database = "SurrealDB (BSL 1.1, free for self-hosted)"
 hardware_used = "NVIDIA RTX 5070 Ti Mobile (12GB VRAM)"
 +++
 
+*This is Part 1 of a two-part series. [Part 2: Hybrid Search, Graph Recall, and Memory Consolidation →](/blog/agent-memory-part-2-hybrid-search-graph-recall-consolidation/)*
+
 My AI agent, Kit, wakes up with amnesia every session. It reads markdown files to reconstruct its memory, but that's brute force — dump everything into context and hope the important stuff doesn't get lost in the noise.
 
 I wanted semantic memory. Ask Kit "what happened with WhatsApp?" and get back the exact section about the gateway fix, not a wall of unrelated notes.
@@ -458,6 +460,8 @@ The embedding server and SurrealDB prototype give us the foundation. The roadmap
 - **Hybrid search** — combine vector similarity, BM25 keyword matching, and graph traversal for richer results
 
 SurrealDB's multi-model architecture makes all of this possible in a single query. The graph layer is what separates this from a plain vector database — you can ask "what concepts are related to the decisions I made last week?" and get answers that require traversing relationships, not just computing cosine similarity.
+
+> **Update:** All four of these are now built. Read [Part 2: Hybrid Search, Graph Recall, and Memory Consolidation](/blog/agent-memory-part-2-hybrid-search-graph-recall-consolidation/) for the full implementation — hybrid BM25+vector search, graph traversal, auto-ingest, and extractive consolidation. 107 tests, zero frameworks.
 
 ---
 

@@ -56,6 +56,8 @@ hardware_used = "NVIDIA RTX 5070 Ti Mobile (12GB VRAM)"
 llm_calls = "Zero — consolidation uses extractive methods"
 +++
 
+*This is Part 2. If you haven't read it yet, start with [Part 1: Zero-Cost AI Agent Memory →](/blog/local-gpu-memory-for-ai-agents/)*
+
 In [Part 1](/blog/local-gpu-memory-for-ai-agents/), I gave my AI agent, Kit, semantic memory — local GPU embeddings, SurrealDB, and a thin OpenAI-compatible server. The post ended with a "What's Next" section listing four features I hadn't built yet.
 
 This post is the receipt. All four are done. 107 tests passing. No frameworks. No LLM API calls for any of it.
