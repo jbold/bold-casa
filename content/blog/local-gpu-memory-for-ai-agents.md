@@ -463,7 +463,7 @@ SurrealDB's multi-model architecture makes all of this possible in a single quer
 
 ## Full Source
 
-All code is available in the [surrealdb-prototype](https://github.com/jbold/surrealdb-prototype) directory:
+All code is available in the [surrealdb-prototype](https://github.com/jbold/surrealdb-agent-memory) directory:
 
 - `schema.surql` — SurrealDB table definitions and indexes
 - `seed.surql` — Sample data
