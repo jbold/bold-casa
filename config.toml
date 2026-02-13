@@ -5,6 +5,7 @@ author = "John Rembold"
 default_language = "en"
 theme = "tabi"
 
+compile_sass = true
 minify_html = true
 build_search_index = true
 generate_feeds = true
@@ -16,9 +17,7 @@ taxonomies = [
 
 [markdown]
 highlight_code = true
-# Tabi supports: css (default), or built-in zola themes.
-# We'll use a built-in one for simplicity unless we setup the css files.
-highlight_theme = "dracula"
+highlight_theme = "css"
 smart_punctuation = true
 external_links_target_blank = true
 external_links_no_follow = false
@@ -42,7 +41,7 @@ socials = [
     { name = "github", url = "https://github.com/jbold", icon = "github" },
 ]
 
-stylesheets = ["custom-v5.css"]
+stylesheets = ["custom.css"]
 
 # Tabi settings
 show_reading_time = true

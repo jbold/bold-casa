@@ -1,0 +1,455 @@
+/* bold.casa — Blueprint Lab structural overrides
+   Colors are in sass/skins/monochrome.scss
+   This file handles layout, typography, and decorative elements only.
+*/
+
+/* =========================
+   0) FONTS
+========================= */
+:root {
+  --sans-serif-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --heading-font: var(--sans-serif-font);
+}
+
+/* =========================
+   1) SELECTION
+========================= */
+::selection {
+  background: color-mix(in srgb, #8bc2ff 30%, transparent);
+  color: var(--text-color-high-contrast);
+}
+
+/* =========================
+   2) GRID TEXTURE (background)
+========================= */
+html {
+  background-image:
+    linear-gradient(rgba(139, 194, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 194, 255, 0.06) 1px, transparent 1px),
+    radial-gradient(circle at 20% 0%, rgba(111, 214, 222, 0.08), transparent 40%);
+  background-size: 28px 28px, 28px 28px, auto;
+  background-attachment: fixed;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  font-family: var(--sans-serif-font);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    background-image:
+      linear-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+}
+
+/* =========================
+   3) TYPOGRAPHY
+========================= */
+h1, h2, h3, h4,
+.article-title,
+#home-banner-header,
+.card-title,
+.bloglist-title a {
+  font-family: var(--heading-font);
+  color: var(--text-color-high-contrast);
+}
+
+h1,
+.article-title,
+#home-banner-header {
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  font-weight: 700;
+  font-size: 1.8rem !important;
+}
+
+h2,
+.card-title,
+.bloglist-title,
+.bloglist-title a {
+  letter-spacing: -0.018em;
+  font-weight: 600;
+  font-size: 1.25rem !important;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 1.05rem !important;
+}
+
+h4 {
+  font-size: 0.9rem !important;
+}
+
+p,
+.bloglist-content .description,
+.card-description {
+  font-family: var(--sans-serif-font);
+  line-height: 1.7;
+}
+
+/* =========================
+   3b) HIDE HOME SECTION TITLE
+========================= */
+.section-title {
+  display: none;
+}
+
+/* =========================
+   4) NAVIGATION
+========================= */
+.navbar {
+  border-bottom: 1px solid var(--divider-color);
+  margin-bottom: 1.5rem;
+}
+
+.home-title {
+  font-weight: 780;
+  letter-spacing: -0.02em;
+}
+
+/* =========================
+   5) HERO / HOME BANNER
+========================= */
+#banner-container-home {
+  border: 1px solid var(--divider-color);
+  border-radius: 14px;
+  padding: 2rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.018), rgba(255, 255, 255, 0.006));
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  margin: -1.5rem auto 2.5rem;
+  box-sizing: border-box;
+}
+
+/* Corner marks */
+#banner-container-home::before,
+#banner-container-home::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-top: 1px solid color-mix(in srgb, #8bc2ff 65%, transparent);
+  border-left: 1px solid color-mix(in srgb, #8bc2ff 65%, transparent);
+  top: 12px;
+  left: 12px;
+}
+
+#banner-container-home::after {
+  transform: rotate(180deg);
+  top: auto;
+  left: auto;
+  bottom: 12px;
+  right: 12px;
+}
+
+#home-banner-header {
+  font-size: clamp(1.4rem, 3.2vw, 2.2rem);
+  margin-bottom: 1rem;
+  color: var(--text-color-high-contrast);
+}
+
+#image-container-home {
+  display: none;
+}
+
+/* =========================
+   6) CHIPS / TAGS
+========================= */
+.hero-tags,
+.filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.hero-tags .tag,
+.filter-controls .taxonomy-item a,
+.meta .tag a,
+.tags .tag {
+  border: 1px solid var(--divider-color);
+  border-radius: 999px;
+  background: var(--bg-0);
+  color: var(--text-color);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 600;
+  padding: 0.28rem 0.6rem;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+/* Fix tag overlap in article meta */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.meta .tag {
+  margin-block: 0.15rem;
+}
+
+.hero-tags .tag:hover,
+.filter-controls .taxonomy-item a:hover,
+.meta .tag a:hover,
+.tags .tag:hover {
+  background: var(--bg-3);
+  border-color: #8bc2ff;
+  color: var(--text-color-high-contrast);
+}
+
+/* =========================
+   7) CARDS
+========================= */
+.card {
+  border: 1px solid var(--divider-color);
+  border-radius: 10px;
+  background: var(--bg-2);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+  position: relative;
+}
+
+.card::before {
+  content: "SPEC";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.62rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, #f3bd66 80%, var(--text-color-high-contrast));
+  background: color-mix(in srgb, #f3bd66 16%, transparent);
+  border: 1px solid color-mix(in srgb, #f3bd66 55%, transparent);
+  border-radius: 999px;
+  padding: 0.22rem 0.5rem;
+  z-index: 2;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #8bc2ff;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.33);
+  background: var(--bg-0);
+}
+
+/* Kill tabi's link hover oval on cards, restore solid hover fill */
+a.card::before,
+a.card:hover::before,
+.card a::before,
+.card a:hover::before {
+  display: none !important;
+}
+
+a.card:hover,
+.card:hover,
+.cards a.card:hover {
+  background: var(--bg-3) !important;
+  background-color: var(--bg-3) !important;
+}
+
+.card-title {
+  color: var(--text-color-high-contrast);
+  font-size: 1.25rem !important;
+}
+
+.card-description {
+  color: var(--meta-color);
+  font-size: 1.02rem;
+  line-height: 1.62;
+}
+
+.card-image {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-bottom: 1px solid var(--divider-color);
+}
+
+/* =========================
+   8) CODE BLOCKS
+   Let the syntax theme's native background show through.
+   Only add border + radius for visual polish.
+========================= */
+pre {
+  overflow-x: auto;
+  max-width: 100%;
+  border: 1px solid var(--divider-color);
+  border-radius: 6px;
+}
+
+pre code {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* --primary-color is now blueprint navy (#3d5a80 dark / #4a6480 light).
+   This makes hover backgrounds and code bars look great, but elements
+   that use primary as TEXT color need a contrast boost. */
+
+/* Nav links, footer links, banner subtitle — need readable text */
+.navbar a,
+footer a,
+#banner-container-home a,
+.all-posts a,
+.bloglist-content .read-more,
+.read-more {
+  color: var(--meta-color);
+}
+
+.navbar a:hover,
+footer a:hover,
+#banner-container-home a:hover,
+.all-posts a:hover,
+.read-more:hover {
+  color: var(--hover-color);
+}
+
+/* Fix tag hover: tabi's ::before pseudo-element creates a rectangular
+   highlight behind links. On pill-shaped tags this looks wrong.
+   Hide the ::before on tags and let the tag's own background handle hover. */
+.meta .tag a:hover::before,
+.hero-tags .tag:hover::before,
+.bloglist-tags .tag a:hover::before,
+.tags .tag:hover::before,
+li.tag a:hover::before {
+  background-color: transparent !important;
+}
+
+.meta .tag a:hover,
+.hero-tags .tag:hover,
+.bloglist-tags .tag a:hover,
+li.tag a:hover {
+  background-color: transparent !important;
+}
+
+/* =========================
+   9) BLOG LIST
+========================= */
+.meta,
+.bloglist-meta,
+time {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  letter-spacing: 0.01em;
+  font-size: 0.8rem;
+}
+
+.bloglist-container {
+  border-top: 1px solid var(--divider-color);
+}
+
+.bloglist-meta,
+.bloglist-content {
+  padding-block: 1rem;
+}
+
+.bloglist-title a {
+  font-size: 1.25rem !important;
+  color: var(--text-color-high-contrast);
+}
+
+/* =========================
+   10) LINKS
+========================= */
+a:hover {
+  color: #8bc2ff;
+}
+
+.e-content a,
+.bloglist-content a:not(.tag):not(.bloglist-title a) {
+  color: var(--meta-color);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: color-mix(in srgb, var(--meta-color) 50%, transparent);
+}
+
+/* Blog titles and read-more links should not be underlined */
+.bloglist-title a,
+.read-more,
+.all-posts a {
+  text-decoration: none !important;
+}
+
+.e-content a:hover,
+.bloglist-content a:not(.tag):hover {
+  text-decoration-color: var(--primary-color);
+}
+
+:focus-visible {
+  outline: 2px solid color-mix(in srgb, #6fd6de 80%, white);
+  outline-offset: 2px;
+}
+
+/* =========================
+   11) FOOTER
+========================= */
+footer {
+  border-top: 1px solid var(--divider-color);
+}
+
+/* =========================
+   12) RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  #banner-container-home {
+    padding: 1.5rem;
+  }
+
+  #home-banner-header {
+    font-size: 1.4rem !important;
+  }
+
+  .card-title {
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  #banner-container-home {
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  #home-banner-header {
+    font-size: 1.2rem !important;
+    line-height: 1.1;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .card-title {
+    font-size: 0.95rem !important;
+  }
+}
+
+/* =========================
+   13) ACCESSIBILITY
+========================= */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

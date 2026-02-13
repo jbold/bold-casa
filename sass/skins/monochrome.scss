@@ -1,0 +1,54 @@
+// bold.casa — Blueprint Monochrome skin
+// Extends tabi's monochrome with the blueprint dark palette.
+// Load order: main.css → custom.css → this skin
+
+@mixin theme-variables($theme) {
+    @if $theme == 'light' {
+        --primary-color: #4a6480;
+
+        --background-color: #f8fafc;
+        --bg-0: #eef2f7;
+        --bg-1: #e4e9f0;
+        --bg-2: #ffffff;
+        --bg-3: #d5dce6;
+        --hover-color: #1e3a5f;
+        --text-color: #1a1f2e;
+        --text-color-high-contrast: #0f1219;
+        --meta-color: #5b6577;
+        --divider-color: rgba(30, 50, 80, 0.12);
+
+        --codeblock-bg: #1e1e2e;
+        --codeblock-highlight: #2a2a3d;
+    }
+    @else if $theme == 'dark' {
+        --primary-color: #3d5a80;
+
+        --background-color: #0f1217;
+        --bg-0: #151a22;
+        --bg-1: #1a2030;
+        --bg-2: #1a2130;
+        --bg-3: #243040;
+        --hover-color: #d8dfe8;
+        --text-color: #e8edf5;
+        --text-color-high-contrast: #dbe2ed;
+        --meta-color: #a8b3c5;
+        --divider-color: rgba(180, 203, 236, 0.14);
+
+        --codeblock-bg: #080b10;
+        --codeblock-highlight: #121820;
+    }
+}
+
+:root {
+    @include theme-variables('light');
+}
+
+[data-theme='dark'] {
+    @include theme-variables('dark');
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) {
+        @include theme-variables('dark');
+    }
+}
