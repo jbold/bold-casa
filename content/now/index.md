@@ -13,7 +13,7 @@ Location: Nashville / Murfreesboro, TN
 - **Nosh:** Created an open spec for embedding structured, machine-readable content in your page's `<head>` so AI agents get typed knowledge instead of parsing HTML. 4.1x fewer tokens, same knowledge. [Blog post.](/blog/nosh-rss-for-the-agentic-web/) [Spec on GitHub.](https://github.com/jbold/nosh)
 - **bold.casa Redesign:** Rebuilt the blog's visual identity — monospace typography, navy blueprint aesthetic, surgical CSS overrides on the tabi theme. Mobile-tested.
 - **Clawguard:** Agent ops guardrail layer — budget enforcement, watchdog, shield, control plane. Primary product wedge. Architecture phase.
-- **Legal Defense:** Pro se EEOC/ADA litigation against HCA. Researching domain-specific legal embedding models (voyage-law-2, LEGAL-BERT) for evidence analysis and potential pro se legal AI product.
+- **Legal AI Research:** Exploring domain-specific legal embedding models (voyage-law-2, LEGAL-BERT) for evidence analysis and potential pro se legal AI product.
 
 ### 📚 Reading / Learning
 
