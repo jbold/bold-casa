@@ -1,0 +1,86 @@
+{% set current_lang = lang | default(value=config.default_language) %}
+{% set highlight_light = "ayu-light" %}
+{% set highlight_dark = "ayu-dark" %}
+<!DOCTYPE html>
+<html lang="{{ current_lang }}" data-theme="dark" data-title-transition-mode="{{ config.extra.title_transition_mode | default(value="off") }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="view-transition" content="same-origin">
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}">
+    <meta name="theme-color" content="#006cac" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#ff6b01" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/x-icon" href="{{ get_url(path='favicon.ico', trailing_slash=false) | safe }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ config.title }}">
+    <meta property="og:title" content="{% block og_title %}{{ config.title }}{% endblock og_title %}">
+    <meta property="og:description" content="{% block og_description %}{{ config.description }}{% endblock og_description %}">
+    {% if page is defined %}
+    <meta property="og:url" content="{{ page.permalink }}">
+    <link rel="canonical" href="{{ page.permalink }}">
+    {% elif section is defined %}
+    <meta property="og:url" content="{{ section.permalink }}">
+    <link rel="canonical" href="{{ section.permalink }}">
+    {% else %}
+    <meta property="og:url" content="{{ config.base_url }}">
+    <link rel="canonical" href="{{ config.base_url }}">
+    {% endif %}
+    <link rel="alternate" type="application/atom+xml" title="{{ config.title }} Atom" href="{{ get_url(path='atom.xml', trailing_slash=false) }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ config.title }} RSS" href="{{ get_url(path='rss.xml', trailing_slash=false) }}">
+    <link rel="preload" href="{{ get_url(path='fonts/atkinson-regular.woff', trailing_slash=false) }}" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="{{ get_url(path='fonts/atkinson-bold.woff', trailing_slash=false) }}" as="font" type="font/woff" crossorigin>
+    <link rel="stylesheet" href="{{ get_url(path='css/generated.css', trailing_slash=false) | safe }}?v=20260211-parity3">
+    <link rel="stylesheet" id="highlight-theme-light" data-highlight-theme="light" href="{{ get_url(path=highlight_light ~ '.css', trailing_slash=false) | safe }}">
+    <link rel="stylesheet" id="highlight-theme-dark" data-highlight-theme="dark" href="{{ get_url(path=highlight_dark ~ '.css', trailing_slash=false) | safe }}" disabled>
+    <script>
+      (function () {
+        var theme = "dark";
+        var manual = false;
+        try {
+          var saved = localStorage.getItem("theme");
+          var timestamp = localStorage.getItem("themeSetTimestamp");
+          if (timestamp) {
+            var ageHours = (Date.now() - parseInt(timestamp, 10)) / (1000 * 60 * 60);
+            if (ageHours < 24) {
+              manual = true;
+            } else {
+              localStorage.removeItem("theme");
+              localStorage.removeItem("themeSetTimestamp");
+              saved = null;
+            }
+          }
+          if (manual && (saved === "light" || saved === "dark")) {
+            theme = saved;
+          } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            theme = "dark";
+          } else {
+            theme = "light";
+          }
+        } catch (e) {}
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": {{ config.title | json_encode | safe }},
+        "url": {{ config.base_url | json_encode | safe }},
+        "description": {{ config.description | default(value="") | json_encode | safe }}
+      }
+    </script>
+    {% block head_extra %}{% endblock head_extra %}
+</head>
+<body>
+    {% include "partials/header.html" %}
+    <main id="main-content" class="{% block main_class %}main-content{% endblock main_class %}" {% block main_attrs %}{% endblock main_attrs %}>
+        {% block content %}{% endblock content %}
+    </main>
+    {% include "partials/footer.html" %}
+    {% block scripts %}{% endblock scripts %}
+    <script defer src="{{ get_url(path='js/lightbox.js', trailing_slash=false) | safe }}"></script>
+    <script defer src="{{ get_url(path='js/klartext.js', trailing_slash=false) | safe }}?v=20260211-parity3"></script>
+    <script defer src="{{ get_url(path='js/title-transition-runtime.js', trailing_slash=false) | safe }}?v=20260211-parity3"></script>
+</body>
+</html>
