@@ -56,8 +56,8 @@
 ========================= */
 html {
   background-image:
-    linear-gradient(rgba(139, 194, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(139, 194, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(rgba(139, 194, 255, 0.10) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(139, 194, 255, 0.10) 1.5px, transparent 1.5px),
     radial-gradient(circle at 20% 0%, rgba(111, 214, 222, 0.16), transparent 60%);
   background-size: 28px 28px, 28px 28px, auto;
   background-attachment: fixed;
@@ -66,15 +66,15 @@ html {
 body {
   text-rendering: optimizeLegibility;
   font-family: var(--sans-serif-font);
-  font-size: 15px;
-  line-height: 1.55;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 /* Frosted content backdrop — keeps grid texture visible at edges
    but gives text a clean, readable surface */
 .content {
   background: color-mix(in srgb, var(--bg-0) 65%, transparent);
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(3px);
   border-radius: 16px;
   padding: 1rem 0;
   margin-top: 0;
@@ -85,16 +85,16 @@ body {
 [data-theme="light"],
 :root:not([data-theme="dark"]) {
   background-image:
-    linear-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(37, 99, 235, 0.12) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.12) 1.5px, transparent 1.5px);
   background-size: 28px 28px;
 }
 
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
     background-image:
-      linear-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
+      linear-gradient(rgba(37, 99, 235, 0.12) 1.5px, transparent 1.5px),
+      linear-gradient(90deg, rgba(37, 99, 235, 0.12) 1.5px, transparent 1.5px);
     background-size: 28px 28px;
   }
 }
@@ -114,8 +114,8 @@ h1, h2, h3, h4,
 h1,
 .article-title,
 #home-banner-header {
-  letter-spacing: -0.03em;
-  line-height: 1.15;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
   font-weight: 700;
   font-size: 1.8rem !important;
 }
