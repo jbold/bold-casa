@@ -32,7 +32,7 @@ This wasn't a minor improvement. Before Toyoda's loom, a single broken thread co
 
 Toyota later codified this as *jidoka*: 自働化: "automation with a human touch." The machine detects abnormality. It stops. It signals. A human investigates, resolves, and the machine resumes. The human's judgment is preserved where it matters most: at the point of failure.
 
-I've been building AI agent systems and designing enterprise products in healthcare and energy, and I'm increasingly convinced that jidoka is the most important design pattern for the AI age. Not because AI systems break like looms: they break in far more interesting ways. But because the core problem is identical: **how do you design a system where automation and human judgment coexist, and where trust is earned incrementally rather than assumed?**
+I've been building AI agent systems and working on enterprise products in healthcare, cloud infrastructure, and adtech, and I'm increasingly convinced that jidoka is the most important design pattern for the AI age. Not because AI systems break like looms: they break in far more interesting ways. But because the core problem is identical: **how do you design a system where automation and human judgment coexist, and where trust is earned incrementally rather than assumed?**
 
 The highest-leverage design work in any AI product isn't the model, the prompt engineering, or the UI. It's the trust architecture: the system that determines what the agent is allowed to do, when it must stop and ask, and how it earns the right to do more.
 

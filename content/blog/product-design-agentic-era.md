@@ -25,7 +25,7 @@ key_findings = [
 
 If design permeates every decision in early-stage product development, from business model to data schema to agent behavior to pixel placement, and if agents are augmenting all knowledge work, what is the irreducible human contribution in "product design"?
 
-I've been thinking about this question while building agent runtimes, orchestrating development swarms, and working on enterprise products in healthcare and energy. What follows is a working framework. Not a manifesto, but a set of first principles for a discipline being defined in real time.
+I've been thinking about this question while building agent runtimes, orchestrating development swarms, and working on enterprise products in healthcare, cloud infrastructure, and adtech. What follows is a working framework. Not a manifesto, but a set of first principles for a discipline being defined in real time.
 
 <!-- more -->
 
