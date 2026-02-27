@@ -102,11 +102,11 @@ An agent doesn't exist in isolation. It exists in relationship to its human (or 
 
 This is proprioception in the relational sense: like knowing where your hand is relative to the object you're reaching for. The agent needs to know not just "who am I" but "who am I *to them*."
 
-In our system, `USER.md` includes: "ADHD, CPTSD, mTBI: systems must be low-friction and forgiving." That's not a data point. It's a relational affordance. It changes how the agent acts at every stage of the seven-step cycle:
+In a hypothetical system, `USER.md` might include: "Prefers concise communication. Non-native English speaker. Timezone: UTC+9." That's not a data point. It's a relational affordance. It changes how the agent acts at every stage of the seven-step cycle:
 
-- **Goal formation** shifts from "provide accurate information" to "provide accurate information in a way that accounts for executive function challenges"
-- **Planning** favors structured, step-by-step approaches over information dumps
-- **Evaluation** includes "was this cognitively accessible?" not just "was this correct?"
+- **Goal formation** shifts from "provide accurate information" to "provide accurate information concisely, in plain language, respecting async timing"
+- **Planning** favors short summaries with expandable detail over lengthy explanations
+- **Evaluation** includes "was this clear and respectful of the user's context?" not just "was this correct?"
 
 Without the relational layer, the agent bridges the Gulf of Execution mechanically: it can do the thing. But it can't bridge the Gulf of Evaluation meaningfully: it doesn't know what "good" means *for this person*.
 
@@ -181,10 +181,10 @@ Now let's walk through Norman's full cycle with the proprioceptive stack active,
 The agent reads the message. With proprioception active:
 
 - **Identity** (`SOUL.md`): "Be genuinely helpful, not performatively helpful. Do the actual work."
-- **Relationship** (`USER.md`): "JR has ADHD: be structured and direct. He's under financial pressure: prioritize things that matter."
+- **Relationship** (`USER.md`): "Prefers concise communication. Non-native English speaker. Works in UTC+9."
 - **Topology** (conversation context): "This is a group channel. Others can see my response."
 
-**Goal formed:** Help with the code review in a way that's genuinely useful, structured for ADHD-friendly consumption, and appropriate for a public channel. Don't share private project details.
+**Goal formed:** Help with the code review in a way that's genuinely useful, written in plain language, and appropriate for a public channel. Don't share private project details.
 
 Without proprioception, the goal is generic: "Help with code review." The proprioceptive stack adds *specificity* to the goal: it's not just what to do, but how to do it in a way that's aligned with identity, relationship, and context.
 
@@ -214,7 +214,7 @@ Tool output returns. The agent reads the diff, the PR metadata, the CI status.
 ### Stage 6: Interpret: "What Does This Mean?"
 
 - **Memory**: "This repo has had SQL injection issues before (see memory from Jan 15). The payment endpoint is security-sensitive."
-- **Relationship** (`USER.md`): "JR is building for enterprise healthcare: security and compliance matter more than speed."
+- **Relationship** (`USER.md`): "User works in fintech: security and compliance matter more than speed."
 - **Capability**: "I can check against OWASP patterns I know. I should flag anything that needs a specialist review."
 
 **Interpretation:** The diff introduces a new API endpoint with user-supplied input flowing to a database query. This matches patterns from previous security issues in this codebase. Confidence in the finding is high for the injection risk, medium for the auth bypass concern.
@@ -222,7 +222,7 @@ Tool output returns. The agent reads the diff, the PR metadata, the CI status.
 ### Stage 7: Compare: "Did I Achieve My Goal?"
 
 - **Identity** (`SOUL.md`): "Did I do the actual work, or did I just generate boilerplate?": Yes, I found a specific, actionable issue.
-- **Relationship** (`USER.md`): "Is this structured for ADHD consumption?": Let me format with a clear summary line, then bullets, then detail blocks.
+- **Relationship** (`USER.md`): "Is this concise and in plain language?": Let me format with a clear summary line, then bullets, then detail blocks.
 - **Boundaries** (`AGENTS.md`): "Did I stay within my rules?": Yes, I read and analyzed but didn't modify anything.
 - **Topology**: "Is this appropriate for a public channel?": Yes, the findings are about the code, not private matters.
 
