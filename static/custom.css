@@ -76,7 +76,7 @@ body {
   background: color-mix(in srgb, var(--bg-0) 72%, transparent);
   backdrop-filter: blur(1px);
   border-radius: 16px;
-  padding: 1rem 0;
+  padding: 1rem 1.5rem;
   margin-top: 0;
   max-width: calc(var(--max-layout-width) - 10rem);
   margin-inline: auto;
@@ -155,7 +155,7 @@ p,
 /* =========================
    4) NAVIGATION
 ========================= */
-/* Align navbar with content backdrop — narrow column */
+/* Align navbar with article text column */
 .navbar {
   border-bottom: 1px solid var(--divider-color);
   margin-bottom: 1.5rem;
@@ -164,15 +164,7 @@ p,
   padding-inline: 0;
 }
 
-/* Force all inner layout elements to respect the narrow column */
-.posts-first,
-.post-list,
-#banner-container-home,
-#posts-list,
-.bloglist-container,
-article {
-  max-width: 100%;
-}
+/* content max-width set in .content block above */
 
 .home-title {
   font-weight: 780;
