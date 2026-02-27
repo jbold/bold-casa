@@ -171,6 +171,7 @@ p,
 .bloglist-container,
 .cards,
 .filter-controls,
+.pagination,
 footer section {
   max-width: calc(var(--max-layout-width) - 12rem);
   margin-inline: auto;
