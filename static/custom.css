@@ -41,12 +41,7 @@
   --heading-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-/* Muted text colors (inspired by steipete.me) — soft silver, not glaring white */
-[data-theme="dark"],
-:root:not([data-theme="light"]) {
-  --text-color: #c8ccd4;
-  --text-color-high-contrast: #eaedf3;
-}
+/* Text colors now set in sass/skins/monochrome.scss (loads after custom.css) */
 
 /* =========================
    1) SELECTION
