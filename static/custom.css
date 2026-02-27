@@ -78,7 +78,7 @@ body {
   border-radius: 16px;
   padding: 1rem 0;
   margin-top: 0;
-  max-width: calc(var(--max-layout-width) - 12rem);
+  max-width: calc(var(--max-layout-width) - 10rem);
   margin-inline: auto;
 }
 
@@ -159,7 +159,7 @@ p,
 .navbar {
   border-bottom: 1px solid var(--divider-color);
   margin-bottom: 1.5rem;
-  max-width: calc(var(--max-layout-width) - 12rem);
+  max-width: calc(var(--max-layout-width) - 10rem);
   margin-inline: auto;
   padding-inline: 0;
 }
