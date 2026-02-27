@@ -71,10 +71,11 @@ body {
 /* Frosted content backdrop — keeps grid texture visible at edges
    but gives text a clean, readable surface */
 .content {
-  background: color-mix(in srgb, var(--bg-0) 88%, transparent);
+  background: color-mix(in srgb, var(--bg-0) 72%, transparent);
   backdrop-filter: blur(1px);
-  border-radius: 8px;
-  padding-inline: 1rem;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  margin-top: 1rem;
 }
 
 [data-theme="light"],
