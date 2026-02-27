@@ -192,7 +192,7 @@ Without proprioception, the goal is generic: "Help with code review." The propri
 
 - **Boundaries** (`AGENTS.md`): "Don't run destructive commands without asking. Review before acting externally."
 - **Capability** (`TOOLS.md`, skills): "I have access to `gh` CLI for GitHub operations. I can read files, run commands in distrobox."
-- **Memory** (`MEMORY.md`): "Last time we did a code review, JR preferred seeing the diff summary first, then detailed findings."
+- **Memory** (`MEMORY.md`): "Last time we did a code review, the user preferred seeing the diff summary first, then detailed findings."
 
 **Plan formed:** Pull the PR diff using `gh`, summarize the changes, review for the specific concerns mentioned, present findings in structured format (summary → details → recommendations). Don't push or modify anything without asking.
 

@@ -548,7 +548,7 @@ After building all of this, I needed to know if it actually worked end-to-end. N
 3. Ask the agent to recall it
 4. Verify it comes back from SurrealDB, not just flat file search
 
-The test: I wrote "JR's code phrase is blue bunny" into today's daily note, started a new session, and asked Kit if it remembered.
+The test: I wrote "the user's code phrase is blue bunny" into today's daily note, started a new session, and asked Kit if it remembered.
 
 It did. From SurrealDB, via hybrid search, with a relevance score.
 
