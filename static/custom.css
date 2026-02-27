@@ -164,11 +164,13 @@ p,
   padding-inline: 0;
 }
 
-/* Tighten inner content on list/home pages to match article text width */
+/* Tighten inner content on list/home/projects pages to match article text width */
 .posts-first,
 .post-list,
 #posts-list,
 .bloglist-container,
+.cards,
+.filter-controls,
 footer section {
   max-width: calc(var(--max-layout-width) - 12rem);
   margin-inline: auto;
