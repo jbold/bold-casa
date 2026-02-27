@@ -351,6 +351,11 @@ pre code {
   word-break: normal;
 }
 
+/* Inline code: match surrounding text size */
+:not(pre) > code {
+  font-size: 0.88em;
+}
+
 /* --primary-color is now blueprint navy (#3d5a80 dark / #4a6480 light).
    This makes hover backgrounds and code bars look great, but elements
    that use primary as TEXT color need a contrast boost. */
