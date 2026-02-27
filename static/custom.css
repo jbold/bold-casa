@@ -78,8 +78,9 @@ body {
   border-radius: 16px;
   padding: 1rem 0;
   margin-top: 0;
-  max-width: calc(var(--max-layout-width) - 10rem);
+  max-width: var(--max-layout-width);
   margin-inline: auto;
+  padding-inline: 1rem;
 }
 
 [data-theme="light"],
@@ -155,13 +156,13 @@ p,
 /* =========================
    4) NAVIGATION
 ========================= */
-/* Align navbar with article text column */
+/* Align navbar with content backdrop */
 .navbar {
   border-bottom: 1px solid var(--divider-color);
   margin-bottom: 1.5rem;
-  max-width: calc(var(--max-layout-width) - 10rem);
+  max-width: var(--max-layout-width);
   margin-inline: auto;
-  padding-inline: 0;
+  padding-inline: 1rem;
 }
 
 /* content max-width set in .content block above */
