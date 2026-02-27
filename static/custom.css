@@ -164,7 +164,21 @@ p,
   padding-inline: 0;
 }
 
-/* content max-width set in .content block above */
+/* Tighten inner content on list/home pages to match article text width */
+.posts-first,
+.post-list,
+#posts-list,
+.bloglist-container,
+footer section {
+  max-width: calc(var(--max-layout-width) - 12rem);
+  margin-inline: auto;
+}
+
+#banner-container-home {
+  max-width: calc(var(--max-layout-width) - 12rem);
+  margin-inline: auto;
+  box-sizing: border-box;
+}
 
 .home-title {
   font-weight: 780;
