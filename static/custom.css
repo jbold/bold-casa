@@ -81,8 +81,8 @@ body {
   background: color-mix(in srgb, var(--bg-0) 72%, transparent);
   backdrop-filter: blur(1px);
   border-radius: 16px;
-  padding: 1.25rem 0.75rem;
-  margin-top: 1rem;
+  padding: 1rem 0;
+  margin-top: 0;
 }
 
 [data-theme="light"],
