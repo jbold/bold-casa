@@ -58,7 +58,7 @@ html {
   background-image:
     linear-gradient(rgba(139, 194, 255, 0.06) 1px, transparent 1px),
     linear-gradient(90deg, rgba(139, 194, 255, 0.06) 1px, transparent 1px),
-    radial-gradient(circle at 20% 0%, rgba(111, 214, 222, 0.08), transparent 40%);
+    radial-gradient(circle at 20% 0%, rgba(111, 214, 222, 0.16), transparent 60%);
   background-size: 28px 28px, 28px 28px, auto;
   background-attachment: fixed;
 }
@@ -73,7 +73,7 @@ body {
 /* Frosted content backdrop — keeps grid texture visible at edges
    but gives text a clean, readable surface */
 .content {
-  background: color-mix(in srgb, var(--bg-0) 72%, transparent);
+  background: color-mix(in srgb, var(--bg-0) 65%, transparent);
   backdrop-filter: blur(1px);
   border-radius: 16px;
   padding: 1rem 0;
@@ -156,6 +156,11 @@ p,
    4) NAVIGATION
 ========================= */
 /* Align navbar with article text column */
+.navbar .logo span,
+.navbar .logo a {
+  text-shadow: 0 0 16px rgba(139, 194, 255, 0.22), 0 0 32px rgba(111, 214, 222, 0.10);
+}
+
 .navbar {
   border-bottom: 1px solid var(--divider-color);
   margin-bottom: 1.5rem;
@@ -186,6 +191,7 @@ footer section {
 .home-title {
   font-weight: 780;
   letter-spacing: -0.02em;
+  text-shadow: 0 0 20px rgba(139, 194, 255, 0.25), 0 0 40px rgba(111, 214, 222, 0.12);
 }
 
 /* =========================
