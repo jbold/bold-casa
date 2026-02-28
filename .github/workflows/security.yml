@@ -16,7 +16,7 @@ jobs:
       has_rust: ${{ steps.detect.outputs.has_rust }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Detect optional Rust module
         id: detect
         run: |
@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Dependency review
         uses: actions/dependency-review-action@v4
 
@@ -42,7 +42,7 @@ jobs:
       security-events: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Secret scan
         uses: gitleaks/gitleaks-action@v2
         with:
@@ -67,7 +67,7 @@ jobs:
       security-events: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           submodules: recursive
 
@@ -92,7 +92,7 @@ jobs:
       security-events: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           submodules: recursive
 
@@ -113,7 +113,7 @@ jobs:
     if: (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && needs.detect-rust-module.outputs.has_rust == 'true'
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
       - name: Install cargo-audit
