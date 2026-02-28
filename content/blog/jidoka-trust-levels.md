@@ -44,7 +44,7 @@ The highest-leverage design work in any AI product isn't the model, the prompt e
 
 <img src="/blog/product-design-agentic-era/03-trust-calibration.png" alt="Trust calibration: Jidoka for the AI age — six levels from full manual to full autonomy" />
 
-In the [parent article](https://bold.casa/product-design-agentic-era/), I introduced a trust calibration framework with six levels. Here, I want to go deep on each one: not just what the agent does, but what the human does, what the interface looks like, what the permission model requires, and what the audit trail captures.
+In the [parent article](https://bold.casa/blog/product-design-agentic-era/), I introduced a trust calibration framework with six levels. Here, I want to go deep on each one: not just what the agent does, but what the human does, what the interface looks like, what the permission model requires, and what the audit trail captures.
 
 These aren't theoretical. They're design specifications.
 
@@ -303,7 +303,7 @@ Jidoka. Automation with a human touch. It was the right design pattern in 1896, 
 - Ohno, T.: *Toyota Production System: Beyond Large-Scale Production* (1988)
 - Norman, D.: *The Design of Everyday Things* (1988)
 - Liker, J.: *The Toyota Way* (2004)
-- Rembold, J.: ["Product Design in the Agentic Era"](https://bold.casa/product-design-agentic-era/) (2026)
+- Rembold, J.: ["Product Design in the Agentic Era"](https://bold.casa/blog/product-design-agentic-era/) (2026)
 - Anthropic Engineering: ["Effective Harnesses for Long-Running Agents"](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) (2025)
 - Parasuraman, R. et al.: "A Model for Types and Levels of Human Interaction with Automation," *IEEE Transactions on Systems, Man, and Cybernetics* (2000)
 - SAE International: J3016: Taxonomy and Definitions for Terms Related to Driving Automation Systems (2021)
@@ -314,4 +314,4 @@ Jidoka. Automation with a human touch. It was the right design pattern in 1896, 
 *Part 2 of the "Design in the Agentic Era" series.*
 
 
-*This is Part 2 of the Design in the Agentic Era series. See also: [Part 1: Product Design in the Agentic Era](/product-design-agentic-era/) · [Part 3: Bimodal Affordances](/bimodal-affordances/) · [Part 4: Agent-to-Agent Affordances](/agent-to-agent-affordances/) · [Part 5: Agent Proprioception](/agent-proprioception/)*
+*This is Part 2 of the Design in the Agentic Era series. See also: [Part 1: Product Design in the Agentic Era](/blog/product-design-agentic-era/) · [Part 3: Bimodal Affordances](/blog/bimodal-affordances/) · [Part 4: Agent-to-Agent Affordances](/blog/agent-to-agent-affordances/) · [Part 5: Agent Proprioception](/blog/agent-proprioception/)*

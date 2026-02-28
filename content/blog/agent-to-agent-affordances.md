@@ -352,9 +352,9 @@ Toyota figured this out for manufacturing seventy years ago. The principles tran
 - Goldratt, E.: *The Goal: A Process of Ongoing Improvement* (1984)
 - Conway, M.: "How Do Committees Invent?" *Datamation* (1968)
 - Asimov, I.: *I, Robot* (1950)
-- Rembold, J.: ["Product Design in the Agentic Era"](https://bold.casa/product-design-agentic-era/) (2026)
-- Rembold, J.: ["Jidoka Trust Levels"](https://bold.casa/jidoka-trust-levels/) (2026)
-- Rembold, J.: ["Bimodal Affordances"](https://bold.casa/bimodal-affordances/) (2026)
+- Rembold, J.: ["Product Design in the Agentic Era"](https://bold.casa/blog/product-design-agentic-era/) (2026)
+- Rembold, J.: ["Jidoka Trust Levels"](https://bold.casa/blog/jidoka-trust-levels/) (2026)
+- Rembold, J.: ["Bimodal Affordances"](https://bold.casa/blog/bimodal-affordances/) (2026)
 - Anthropic Engineering: ["Effective Harnesses for Long-Running Agents"](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) (2025)
 - GitHub Next: ["Continuous AI"](https://githubnext.com/projects/continuous-ai) (2026)
 - GitHub Next: ["Welcome to Peli's Agent Factory"](https://github.github.com/gh-aw/blog/2026-01-12-welcome-to-pelis-agent-factory/) (2026)
@@ -366,4 +366,4 @@ Toyota figured this out for manufacturing seventy years ago. The principles tran
 *Part 4 of the "Design in the Agentic Era" series.*
 
 
-*This is Part 4 of the Design in the Agentic Era series. See also: [Part 1: Product Design in the Agentic Era](/product-design-agentic-era/) · [Part 2: Jidoka Trust Levels](/jidoka-trust-levels/) · [Part 3: Bimodal Affordances](/bimodal-affordances/) · [Part 5: Agent Proprioception](/agent-proprioception/)*
+*This is Part 4 of the Design in the Agentic Era series. See also: [Part 1: Product Design in the Agentic Era](/blog/product-design-agentic-era/) · [Part 2: Jidoka Trust Levels](/blog/jidoka-trust-levels/) · [Part 3: Bimodal Affordances](/blog/bimodal-affordances/) · [Part 5: Agent Proprioception](/blog/agent-proprioception/)*

@@ -315,15 +315,15 @@ The design challenge is curating the Umwelt: what does this agent need to percei
 
 ## From Proprioception to Coordination
 
-The proprioceptive stack doesn't just serve individual agents. It's the foundation for the multi-agent coordination described in [Part 3](https://bold.casa/agent-to-agent-affordances/).
+The proprioceptive stack doesn't just serve individual agents. It's the foundation for the multi-agent coordination described in [Part 3](https://bold.casa/blog/agent-to-agent-affordances/).
 
 When Agent A delegates to Agent B, what it's really doing is transferring parts of its proprioceptive state: "Here's the task context (topology), here's what the user needs (relationship), here's what's been tried (memory), here's what you can do (capability), here's what you must not do (boundaries)."
 
 A well-designed delegation contract (Part 3's structured handoffs) is a *proprioceptive transplant*: giving the receiving agent enough self-model and environment-model to act coherently without having been present for the full context.
 
-The trust levels from [Part 1](https://bold.casa/jidoka-trust-levels/) are also proprioceptive: they define how much autonomy the agent has (boundary adjustment), how much feedback it needs (evaluation support), and how much human oversight is active (external proprioceptive correction, like a physical therapist guiding a recovering patient's movements).
+The trust levels from [Part 1](https://bold.casa/blog/jidoka-trust-levels/) are also proprioceptive: they define how much autonomy the agent has (boundary adjustment), how much feedback it needs (evaluation support), and how much human oversight is active (external proprioceptive correction, like a physical therapist guiding a recovering patient's movements).
 
-And the bimodal affordances from [Part 2](https://bold.casa/bimodal-affordances/) are how proprioceptive information gets expressed: the human-readable and agent-readable layers through which the system communicates state, capability, and intent.
+And the bimodal affordances from [Part 2](https://bold.casa/blog/bimodal-affordances/) are how proprioceptive information gets expressed: the human-readable and agent-readable layers through which the system communicates state, capability, and intent.
 
 Proprioception is the layer beneath all three. Without it, trust calibration has no self to calibrate. Bimodal affordances have no agent-side perceiver. Multi-agent coordination has no stable identity to coordinate.
 
@@ -390,10 +390,10 @@ That's proprioception. And it's built from files.
 - Gibson, J.J.: *The Ecological Approach to Visual Perception* (1979)
 - Gallagher, S.: *How the Body Shapes the Mind* (2005)
 - Proske, U. & Gandevia, S.C.: "The Proprioceptive Senses: Their Roles in Signaling Body Shape, Body Position and Movement, and Muscle Force," *Physiological Reviews* (2012)
-- Rembold, J.: ["Product Design in the Agentic Era"](https://bold.casa/product-design-agentic-era/) (2026)
-- Rembold, J.: ["Jidoka Trust Levels"](https://bold.casa/jidoka-trust-levels/) (2026)
-- Rembold, J.: ["Bimodal Affordances"](https://bold.casa/bimodal-affordances/) (2026)
-- Rembold, J.: ["Agent-to-Agent Affordances"](https://bold.casa/agent-to-agent-affordances/) (2026)
+- Rembold, J.: ["Product Design in the Agentic Era"](https://bold.casa/blog/product-design-agentic-era/) (2026)
+- Rembold, J.: ["Jidoka Trust Levels"](https://bold.casa/blog/jidoka-trust-levels/) (2026)
+- Rembold, J.: ["Bimodal Affordances"](https://bold.casa/blog/bimodal-affordances/) (2026)
+- Rembold, J.: ["Agent-to-Agent Affordances"](https://bold.casa/blog/agent-to-agent-affordances/) (2026)
 - Anthropic Engineering: ["Effective Harnesses for Long-Running Agents"](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) (2025)
 
 ---
@@ -401,4 +401,4 @@ That's proprioception. And it's built from files.
 *Part 5 of the "Design in the Agentic Era" series.*
 
 
-*This is Part 5 of the Design in the Agentic Era series. See also: [Part 1: Product Design in the Agentic Era](/product-design-agentic-era/) · [Part 2: Jidoka Trust Levels](/jidoka-trust-levels/) · [Part 3: Bimodal Affordances](/bimodal-affordances/) · [Part 4: Agent-to-Agent Affordances](/agent-to-agent-affordances/)*
+*This is Part 5 of the Design in the Agentic Era series. See also: [Part 1: Product Design in the Agentic Era](/blog/product-design-agentic-era/) · [Part 2: Jidoka Trust Levels](/blog/jidoka-trust-levels/) · [Part 3: Bimodal Affordances](/blog/bimodal-affordances/) · [Part 4: Agent-to-Agent Affordances](/blog/agent-to-agent-affordances/)*

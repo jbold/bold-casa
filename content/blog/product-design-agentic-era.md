@@ -229,4 +229,4 @@ That's design. It always has been.
 *Part 1 of the "Design in the Agentic Era" series.*
 
 
-*This is Part 1 of the Design in the Agentic Era series. See also: [Part 2: Jidoka Trust Levels](/jidoka-trust-levels/) · [Part 3: Bimodal Affordances](/bimodal-affordances/) · [Part 4: Agent-to-Agent Affordances](/agent-to-agent-affordances/) · [Part 5: Agent Proprioception](/agent-proprioception/)*
+*This is Part 1 of the Design in the Agentic Era series. See also: [Part 2: Jidoka Trust Levels](/blog/jidoka-trust-levels/) · [Part 3: Bimodal Affordances](/blog/bimodal-affordances/) · [Part 4: Agent-to-Agent Affordances](/blog/agent-to-agent-affordances/) · [Part 5: Agent Proprioception](/blog/agent-proprioception/)*

@@ -128,7 +128,7 @@ Confidence isn't metadata: it's a primary affordance in bimodal systems.
 
 **For agents:** Numeric scores, calibration metadata (is this model's 0.8 actually 80% accurate?), confidence distributions (not just point estimates), confidence-over-context (has confidence on this field type been degrading recently?).
 
-**The design decision:** How much of the agent's confidence layer do you expose to the human? All of it overwhelms. None of it obscures. The right answer depends on the trust level (see [Part 1](https://bold.casa/jidoka-trust-levels/)). At Level 2, humans need to see confidence to make approval decisions. At Level 4, they need aggregate confidence trends, not individual scores.
+**The design decision:** How much of the agent's confidence layer do you expose to the human? All of it overwhelms. None of it obscures. The right answer depends on the trust level (see [Part 1](https://bold.casa/blog/jidoka-trust-levels/)). At Level 2, humans need to see confidence to make approval decisions. At Level 4, they need aggregate confidence trends, not individual scores.
 
 ### Pattern 5: Bidirectional Signifiers
 
@@ -266,8 +266,8 @@ The accessibility movement proved this: designing for the second audience doesn'
 - Norman, D.: *Living with Complexity* (2010)
 - W3C: Web Content Accessibility Guidelines (WCAG) 2.1
 - Gibson, J.J.: *The Ecological Approach to Visual Perception* (1979)
-- Rembold, J.: ["Product Design in the Agentic Era"](https://bold.casa/product-design-agentic-era/) (2026)
-- Rembold, J.: ["Jidoka Trust Levels"](https://bold.casa/jidoka-trust-levels/) (2026)
+- Rembold, J.: ["Product Design in the Agentic Era"](https://bold.casa/blog/product-design-agentic-era/) (2026)
+- Rembold, J.: ["Jidoka Trust Levels"](https://bold.casa/blog/jidoka-trust-levels/) (2026)
 - Anthropic Engineering: ["Effective Harnesses for Long-Running Agents"](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) (2025)
 - Anthropic: [Claude 4 Prompting Best Practices](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices) (2025)
 
@@ -276,4 +276,4 @@ The accessibility movement proved this: designing for the second audience doesn'
 *Part 3 of the "Design in the Agentic Era" series.*
 
 
-*This is Part 3 of the Design in the Agentic Era series. See also: [Part 1: Product Design in the Agentic Era](/product-design-agentic-era/) · [Part 2: Jidoka Trust Levels](/jidoka-trust-levels/) · [Part 4: Agent-to-Agent Affordances](/agent-to-agent-affordances/) · [Part 5: Agent Proprioception](/agent-proprioception/)*
+*This is Part 3 of the Design in the Agentic Era series. See also: [Part 1: Product Design in the Agentic Era](/blog/product-design-agentic-era/) · [Part 2: Jidoka Trust Levels](/blog/jidoka-trust-levels/) · [Part 4: Agent-to-Agent Affordances](/blog/agent-to-agent-affordances/) · [Part 5: Agent Proprioception](/blog/agent-proprioception/)*
