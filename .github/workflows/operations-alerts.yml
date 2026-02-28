@@ -1,0 +1,61 @@
+name: Operations Alerts
+
+on:
+  workflow_run:
+    workflows:
+      - CI
+      - Security
+      - Deploy Cloudflare Pages
+    types:
+      - completed
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  notify-on-failure:
+    if: ${{ github.event.workflow_run.conclusion != 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create failure issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const run = context.payload.workflow_run;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const marker = `ops-workflow-run-id:${run.id}`;
+
+            const existing = await github.rest.search.issuesAndPullRequests({
+              q: `repo:${owner}/${repo} type:issue in:body "${marker}" state:open`,
+              per_page: 5,
+            });
+
+            if (existing.data.items.length > 0) {
+              console.log(`Open issue already exists for run ${run.id}`);
+              return;
+            }
+
+            const title = `[ops] ${run.name} failed (run ${run.id})`;
+            const body = [
+              "Automated operations alert from GitHub Actions.",
+              "",
+              `- Workflow: ${run.name}`,
+              `- Conclusion: ${run.conclusion}`,
+              `- Branch: ${run.head_branch}`,
+              `- Commit: ${run.head_sha}`,
+              `- Actor: ${run.actor?.login || "unknown"}`,
+              `- Run URL: ${run.html_url}`,
+              "",
+              "Please inspect workflow logs and artifacts for details.",
+              "",
+              marker,
+            ].join("\n");
+
+            await github.rest.issues.create({
+              owner,
+              repo,
+              title,
+              body
+            });

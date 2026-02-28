@@ -2,3 +2,10 @@ public/
 .~lock.*
 .env
 specs/**/screenshots/
+node_modules/
+themes/klartext/node_modules/
+transition-wasm/target/
+test-results/
+output/
+artifacts/
+*.log

@@ -1,0 +1,82 @@
+name: Deploy Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-cloudflare-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install Zola
+        uses: taiki-e/install-action@v2
+        with:
+          tool: zola
+
+      - name: Build site
+        run: zola build
+
+      - name: Preflight deployment configuration
+        id: preflight
+        env:
+          CF_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT }}
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          missing=()
+          [[ -z "${CF_PROJECT}" ]] && missing+=("vars.CLOUDFLARE_PAGES_PROJECT")
+          [[ -z "${CF_API_TOKEN}" ]] && missing+=("secrets.CLOUDFLARE_API_TOKEN")
+          [[ -z "${CF_ACCOUNT_ID}" ]] && missing+=("secrets.CLOUDFLARE_ACCOUNT_ID")
+
+          if [[ "${#missing[@]}" -gt 0 ]]; then
+            echo "enabled=false" >> "${GITHUB_OUTPUT}"
+            echo "## Deployment Skipped" >> "${GITHUB_STEP_SUMMARY}"
+            echo "" >> "${GITHUB_STEP_SUMMARY}"
+            echo "Missing required configuration:" >> "${GITHUB_STEP_SUMMARY}"
+            for item in "${missing[@]}"; do
+              echo "- \`${item}\`" >> "${GITHUB_STEP_SUMMARY}"
+            done
+            exit 0
+          fi
+
+          echo "enabled=true" >> "${GITHUB_OUTPUT}"
+
+      - name: Deploy to Cloudflare Pages
+        id: deploy
+        if: steps.preflight.outputs.enabled == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: >-
+            pages deploy public
+            --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT }}
+            --branch=${{ github.ref_name }}
+
+      - name: Verify deployment endpoint
+        if: steps.preflight.outputs.enabled == 'true'
+        run: |
+          DEPLOY_URL="https://${{ vars.CLOUDFLARE_PAGES_PROJECT }}.pages.dev"
+          curl -fsS "${DEPLOY_URL}" >/dev/null
+          {
+            echo "## Deployment Verification"
+            echo ""
+            echo "- Project: \`${{ vars.CLOUDFLARE_PAGES_PROJECT }}\`"
+            echo "- URL: ${DEPLOY_URL}"
+            echo "- Branch: \`${{ github.ref_name }}\`"
+          } >> "${GITHUB_STEP_SUMMARY}"

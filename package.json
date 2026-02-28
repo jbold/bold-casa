@@ -1,0 +1,14 @@
+{
+  "name": "bold-casa-qa",
+  "private": true,
+  "version": "0.1.0",
+  "description": "QA and automation tooling for bold.casa",
+  "scripts": {
+    "test:e2e-a11y": "node scripts/e2e-a11y-smoke.cjs",
+    "test:e2e-a11y:serve": "bash scripts/test-e2e-a11y.sh"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.11.0",
+    "playwright": "1.58.2"
+  }
+}
