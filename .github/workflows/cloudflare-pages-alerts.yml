@@ -1,27 +1,86 @@
 name: Cloudflare Pages Alerts
 
 on:
-  check_run:
-    types:
-      - completed
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 permissions:
   contents: read
   issues: write
 
 jobs:
-  alert-on-cloudflare-pages-failure:
-    if: ${{ github.event.check_run.name == 'Cloudflare Pages' && github.event.check_run.conclusion != 'success' }}
+  monitor-cloudflare-pages-check:
     runs-on: ubuntu-latest
     steps:
-      - name: Create issue for failed Cloudflare deploy check
+      - name: Wait for Cloudflare Pages check-run
+        id: cloudflare
         uses: actions/github-script@v7
         with:
           script: |
-            const checkRun = context.payload.check_run;
             const owner = context.repo.owner;
             const repo = context.repo.repo;
-            const marker = `ops-cloudflare-check-run-id:${checkRun.id}`;
+            const ref = context.sha;
+            const appSlug = "cloudflare-workers-and-pages";
+            const checkName = "Cloudflare Pages";
+            const maxAttempts = 60;
+            const delayMs = 10000;
+
+            let found = null;
+
+            for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+              const response = await github.rest.checks.listForRef({
+                owner,
+                repo,
+                ref,
+                per_page: 100,
+              });
+
+              found = response.data.check_runs.find((run) => {
+                return run.name === checkName && run.app?.slug === appSlug;
+              });
+
+              if (found && found.status === "completed") {
+                break;
+              }
+
+              await new Promise((resolve) => setTimeout(resolve, delayMs));
+            }
+
+            if (!found) {
+              core.setOutput("status", "missing");
+              core.setOutput("conclusion", "missing");
+              core.setOutput("check_run_id", "none");
+              core.setOutput("details_url", "");
+              core.setFailed("Cloudflare Pages check-run not found for this commit.");
+              return;
+            }
+
+            core.setOutput("status", found.status || "unknown");
+            core.setOutput("conclusion", found.conclusion || "unknown");
+            core.setOutput("check_run_id", String(found.id));
+            core.setOutput("details_url", found.details_url || "");
+
+            if (found.conclusion !== "success") {
+              core.setFailed(`Cloudflare Pages check concluded with '${found.conclusion}'.`);
+            }
+
+      - name: Create issue for failed Cloudflare Pages deploy
+        if: failure()
+        uses: actions/github-script@v7
+        env:
+          CHECK_RUN_ID: ${{ steps.cloudflare.outputs.check_run_id }}
+          CONCLUSION: ${{ steps.cloudflare.outputs.conclusion }}
+          DETAILS_URL: ${{ steps.cloudflare.outputs.details_url }}
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const marker = `ops-cloudflare-monitor-sha:${context.sha}`;
+            const checkRunId = process.env.CHECK_RUN_ID || "none";
+            const conclusion = process.env.CONCLUSION || "unknown";
+            const detailsUrl = process.env.DETAILS_URL || "n/a";
 
             const existing = await github.rest.search.issuesAndPullRequests({
               q: `repo:${owner}/${repo} type:issue in:body "${marker}" state:open`,
@@ -29,22 +88,19 @@ jobs:
             });
 
             if (existing.data.items.length > 0) {
-              console.log(`Open issue already exists for Cloudflare check run ${checkRun.id}`);
+              console.log(`Open issue already exists for ${marker}`);
               return;
             }
 
-            const title = `[ops] Cloudflare Pages deployment failed (check ${checkRun.id})`;
+            const title = `[ops] Cloudflare Pages deployment check failed (${context.sha.slice(0, 7)})`;
             const body = [
-              "Automated deployment alert from GitHub check-runs.",
+              "Automated Cloudflare deployment check alert.",
               "",
-              `- Check name: ${checkRun.name}`,
-              `- Conclusion: ${checkRun.conclusion}`,
-              `- Branch: ${checkRun.check_suite?.head_branch || "unknown"}`,
-              `- Commit: ${checkRun.head_sha}`,
-              `- Triggered by app: ${checkRun.app?.slug || "unknown"}`,
-              `- Details URL: ${checkRun.details_url || "n/a"}`,
-              "",
-              "This monitors native Cloudflare GitHub integration check-runs.",
+              `- Commit: ${context.sha}`,
+              `- Check run id: ${checkRunId}`,
+              `- Conclusion: ${conclusion}`,
+              `- Details URL: ${detailsUrl}`,
+              `- Workflow run: https://github.com/${owner}/${repo}/actions/runs/${context.runId}`,
               "",
               marker,
             ].join("\n");
