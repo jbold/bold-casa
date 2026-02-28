@@ -42,6 +42,8 @@ The highest-leverage design work in any AI product isn't the model, the prompt e
 
 ## The Six Levels
 
+<img src="/blog/product-design-agentic-era/03-trust-calibration.png" alt="Trust calibration: Jidoka for the AI age — six levels from full manual to full autonomy" />
+
 In the [parent article](https://bold.casa/product-design-agentic-era/), I introduced a trust calibration framework with six levels. Here, I want to go deep on each one: not just what the agent does, but what the human does, what the interface looks like, what the permission model requires, and what the audit trail captures.
 
 These aren't theoretical. They're design specifications.
