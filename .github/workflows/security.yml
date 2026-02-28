@@ -43,29 +43,46 @@ jobs:
           name: gitleaks-sarif
           path: gitleaks.sarif
 
-  codeql:
-    if: ${{ matrix.language != 'rust' || hashFiles('transition-wasm/Cargo.toml') != '' }}
+  codeql-javascript:
     runs-on: ubuntu-latest
     permissions:
       actions: read
       contents: read
       security-events: write
-    strategy:
-      fail-fast: false
-      matrix:
-        language:
-          - javascript
-          - rust
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: recursive
 
-      - name: Initialize CodeQL
+      - name: Initialize CodeQL (JavaScript)
         uses: github/codeql-action/init@v3
         with:
-          languages: ${{ matrix.language }}
+          languages: javascript
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Analyze
+        uses: github/codeql-action/analyze@v3
+
+  codeql-rust:
+    if: hashFiles('transition-wasm/Cargo.toml') != ''
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Initialize CodeQL (Rust)
+        uses: github/codeql-action/init@v3
+        with:
+          languages: rust
 
       - name: Autobuild
         uses: github/codeql-action/autobuild@v3
