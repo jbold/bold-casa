@@ -303,7 +303,7 @@ Jidoka. Automation with a human touch. It was the right design pattern in 1896, 
 
 ---
 
-*Part 1 of the "Design in the Agentic Era" series. Next: Bimodal Affordances: Designing for Two Kinds of Minds.*
+*Part 2 of the "Design in the Agentic Era" series.*
 
 
-*This is Part 1 of the [Design in the Agentic Era](/product-design-agentic-era/) series. See also: [Part 2: Bimodal Affordances](/bimodal-affordances/) · [Part 3: Agent-to-Agent Affordances](/agent-to-agent-affordances/) · [Part 4: Agent Proprioception](/agent-proprioception/)*
+*This is Part 2 of the Design in the Agentic Era series. See also: [Part 1: Product Design in the Agentic Era](/product-design-agentic-era/) · [Part 3: Bimodal Affordances](/bimodal-affordances/) · [Part 4: Agent-to-Agent Affordances](/agent-to-agent-affordances/) · [Part 5: Agent Proprioception](/agent-proprioception/)*

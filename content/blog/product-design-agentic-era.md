@@ -223,3 +223,10 @@ That's design. It always has been.
 ---
 
 *This document is a living artifact. The frameworks are hypotheses to be tested against real product work, real users, and real constraints.*
+
+---
+
+*Part 1 of the "Design in the Agentic Era" series.*
+
+
+*This is Part 1 of the Design in the Agentic Era series. See also: [Part 2: Jidoka Trust Levels](/jidoka-trust-levels/) · [Part 3: Bimodal Affordances](/bimodal-affordances/) · [Part 4: Agent-to-Agent Affordances](/agent-to-agent-affordances/) · [Part 5: Agent Proprioception](/agent-proprioception/)*

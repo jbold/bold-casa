@@ -363,7 +363,7 @@ Toyota figured this out for manufacturing seventy years ago. The principles tran
 
 ---
 
-*Part 3 of the "Design in the Agentic Era" series.*
+*Part 4 of the "Design in the Agentic Era" series.*
 
 
-*This is Part 3 of the [Design in the Agentic Era](/product-design-agentic-era/) series. See also: [Part 1: Jidoka Trust Levels](/jidoka-trust-levels/) · [Part 2: Bimodal Affordances](/bimodal-affordances/) · [Part 4: Agent Proprioception](/agent-proprioception/)*
+*This is Part 4 of the Design in the Agentic Era series. See also: [Part 1: Product Design in the Agentic Era](/product-design-agentic-era/) · [Part 2: Jidoka Trust Levels](/jidoka-trust-levels/) · [Part 3: Bimodal Affordances](/bimodal-affordances/) · [Part 5: Agent Proprioception](/agent-proprioception/)*

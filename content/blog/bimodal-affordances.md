@@ -273,7 +273,7 @@ The accessibility movement proved this: designing for the second audience doesn'
 
 ---
 
-*Part 2 of the "Design in the Agentic Era" series. Next: Agent-to-Agent Affordances: Design Beyond the Human Loop.*
+*Part 3 of the "Design in the Agentic Era" series.*
 
 
-*This is Part 2 of the [Design in the Agentic Era](/product-design-agentic-era/) series. See also: [Part 1: Jidoka Trust Levels](/jidoka-trust-levels/) · [Part 3: Agent-to-Agent Affordances](/agent-to-agent-affordances/) · [Part 4: Agent Proprioception](/agent-proprioception/)*
+*This is Part 3 of the Design in the Agentic Era series. See also: [Part 1: Product Design in the Agentic Era](/product-design-agentic-era/) · [Part 2: Jidoka Trust Levels](/jidoka-trust-levels/) · [Part 4: Agent-to-Agent Affordances](/agent-to-agent-affordances/) · [Part 5: Agent Proprioception](/agent-proprioception/)*
