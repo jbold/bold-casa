@@ -38,6 +38,8 @@ The highest-leverage design work in any AI product isn't the model, the prompt e
 
 ---
 
+<img src="/blog/jidoka-trust-levels/01-loom-to-ai.png" alt="From loom to AI: the Jidoka principle" />
+
 ## The Six Levels
 
 In the [parent article](https://bold.casa/product-design-agentic-era/), I introduced a trust calibration framework with six levels. Here, I want to go deep on each one: not just what the agent does, but what the human does, what the interface looks like, what the permission model requires, and what the audit trail captures.
@@ -154,6 +156,8 @@ For regulated industries: healthcare, finance, energy: Level 5 may never be appr
 
 ---
 
+<img src="/blog/jidoka-trust-levels/02-transition-design.png" alt="Transition design patterns for trust calibration" />
+
 ## Transition Design
 
 The levels are useful as a framework, but the hardest design problem isn't any individual level: it's the transitions between them.
@@ -219,6 +223,8 @@ The agent handles 90% of cases well. Instead of routing the remaining 10% to hum
 **The jidoka insight:** The loom doesn't try to fix the broken thread. It stops and signals. Some tasks are better handled by humans, permanently. The design skill is knowing where that boundary lives and accepting it.
 
 ---
+
+<img src="/blog/jidoka-trust-levels/03-toyota-principles.png" alt="Toyota's deeper principles applied to AI agents" />
 
 ## Toyota's Deeper Principles
 
