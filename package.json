@@ -8,7 +8,7 @@
     "test:e2e-a11y:serve": "bash scripts/test-e2e-a11y.sh"
   },
   "devDependencies": {
-    "@axe-core/playwright": "4.11.0",
+    "@axe-core/playwright": "4.11.1",
     "playwright": "1.58.2"
   }
 }
